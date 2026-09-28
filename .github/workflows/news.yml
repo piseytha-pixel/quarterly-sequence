@@ -1,0 +1,92 @@
+# Copies the ForexFactory calendar into this repository every 30 minutes,
+# so the QS Kingdom website can read it without public relays.
+name: Update news
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"   # every 30 minutes (GitHub may run it a few minutes late)
+  workflow_dispatch:          # lets you press "Run workflow" by hand
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news
+  cancel-in-progress: false
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download calendar
+        run: |
+          mkdir -p news
+          for w in thisweek nextweek lastweek; do
+            f="ff_calendar_${w}.json"
+            if curl -fsSL --max-time 30 -A "Mozilla/5.0" "https://nfs.faireconomy.media/${f}" -o "/tmp/${f}"; then
+              # keep the old copy unless this one is a real list of events
+              if python3 -c "import json,sys;d=json.load(open(sys.argv[1]));assert isinstance(d,list) and d and 'title' in d[0]" "/tmp/${f}"; then
+                cp "/tmp/${f}" "news/${f}"; echo "${f}: ok"
+              else echo "${f}: not a calendar, kept old copy"; fi
+            else echo "${f}: not available right now"; fi
+            sleep 20
+          done
+
+      - name: Read next week from forexfactory.com
+        # FF's free file only covers the current week; next week is on the site.
+        # The site may refuse GitHub's servers now and then; the old copy is kept then.
+        continue-on-error: true
+        run: |
+          cat > /tmp/ffpage.js <<'JS'
+          // Reads the events a forexfactory.com calendar page carries and writes them
+          // in the same shape as FF's free weekly file.   node ffpage.js page.html out.json
+          const fs=require('fs'),vm=require('vm');
+          const html=fs.readFileSync(process.argv[2],'utf8');
+          const ctx={window:{}};ctx.window.window=ctx.window;vm.createContext(ctx);
+          const re=/<script[^>]*>([\s\S]*?)<\/script>/gi;let m;
+          while((m=re.exec(html))){
+            if(m[1].indexOf('calendarComponentStates')<0)continue;
+            try{vm.runInContext(m[1],ctx,{timeout:2000});}catch(e){}
+          }
+          const S=ctx.window.calendarComponentStates,out=[],seen={};
+          const imp=o=>{const t=[o.impactName,o.impactClass,o.impactTitle].join(' ').toLowerCase();
+            return /impact-red|high/.test(t)?'High':/impact-ora|med/.test(t)?'Medium':/impact-gra|holiday|non-econ/.test(t)?'Holiday':'Low';};
+          (function w(o,d){
+            if(!o||typeof o!=='object'||d>9)return;
+            if(Array.isArray(o)){o.forEach(x=>w(x,d+1));return;}
+            if(o.dateline&&o.name&&o.currency!==undefined){
+              const k=String(o.id||o.dateline+o.name+o.currency);if(seen[k])return;seen[k]=1;
+              const u=o.url||o.soloUrl||'';
+              out.push({title:o.name,country:o.currency,date:new Date(o.dateline*1000).toISOString(),
+                impact:imp(o),forecast:o.forecast||'',previous:o.previous||'',actual:o.actual||'',
+                url:u?(/^https?:/.test(u)?u:'https://www.forexfactory.com'+(u[0]==='/'?'':'/')+u):''});
+              return;}
+            for(const q in o)w(o[q],d+1);
+          })(S,0);
+          out.sort((a,b)=>a.date<b.date?-1:1);
+          if(!out.length){console.log('no events on the page (blocked or changed)');process.exit(1);}
+          fs.writeFileSync(process.argv[3],JSON.stringify(out));
+          console.log(out.length+' events, '+out[0].date+' to '+out[out.length-1].date);
+          JS
+          for w in next last; do
+            if curl -fsSL --compressed --max-time 40 \
+                 -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36" \
+                 -H "Accept: text/html,application/xhtml+xml" -H "Accept-Language: en-US,en;q=0.9" \
+                 "https://www.forexfactory.com/calendar?week=${w}" -o /tmp/ff_${w}.html \
+               && node /tmp/ffpage.js /tmp/ff_${w}.html /tmp/ff_${w}.json; then
+              cp /tmp/ff_${w}.json "news/ff_calendar_${w}week.json"; echo "${w} week: saved"
+            else echo "${w} week: forexfactory.com did not answer, kept old copy"; fi
+            sleep 10
+          done
+
+      - name: Save if changed
+        run: |
+          git config user.name "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add news
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git commit -m "Update news $(TZ=America/New_York date '+%a %b %d %H:%M') EST"
+          git push
