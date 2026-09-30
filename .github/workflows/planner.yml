@@ -1,0 +1,119 @@
+# QS Kingdom Planner: every 30 minutes, signs in as each admin account and posts
+# the Planner slots you have APPROVED whose time has come. Drafts never go out.
+# Replaces daily-post.yml (the News Plan is now a Spiral Research slot).
+name: Planner
+
+on:
+  schedule:
+    - cron: "2,32 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: planner
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Get a browser
+        run: |
+          mkdir -p /tmp/qs && cd /tmp/qs
+          npm init -y >/dev/null
+          npm i playwright@1.47.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Post what is due
+        env:
+          SITE: https://piseytha-pixel.github.io/quarterly-sequence/
+          MAIN_EMAIL: ${{ secrets.QS_EMAIL }}
+          MAIN_PASSWORD: ${{ secrets.QS_PASSWORD }}
+          RESEARCH_EMAIL: ${{ secrets.QS_RESEARCH_EMAIL }}
+          RESEARCH_PASSWORD: ${{ secrets.QS_RESEARCH_PASSWORD }}
+          SELL_EMAIL: ${{ secrets.QS_SELL_EMAIL }}
+          SELL_PASSWORD: ${{ secrets.QS_SELL_PASSWORD }}
+          TEACH_EMAIL: ${{ secrets.QS_TEACH_EMAIL }}
+          TEACH_PASSWORD: ${{ secrets.QS_TEACH_PASSWORD }}
+          IT_EMAIL: ${{ secrets.QS_IT_EMAIL }}
+          IT_PASSWORD: ${{ secrets.QS_IT_PASSWORD }}
+          DUKE_EMAIL: ${{ secrets.QS_DUKE_EMAIL }}
+          DUKE_PASSWORD: ${{ secrets.QS_DUKE_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          cd /tmp/qs
+          cat > post.js <<'JS'
+          const { chromium } = require('playwright');
+          const E = process.env;
+          const accounts = [
+            ['Main admin', E.MAIN_EMAIL, E.MAIN_PASSWORD],
+            ['Spiral Research', E.RESEARCH_EMAIL, E.RESEARCH_PASSWORD],
+            ['Spiral Sell', E.SELL_EMAIL, E.SELL_PASSWORD],
+            ['Spiral Teach', E.TEACH_EMAIL, E.TEACH_PASSWORD],
+            ['Spiral IT', E.IT_EMAIL, E.IT_PASSWORD],
+            ['Duke', E.DUKE_EMAIL, E.DUKE_PASSWORD],
+          ];
+          // ── Telegram: send one post (picture + text) to your channel ──
+          const TG = E.TELEGRAM_BOT_TOKEN && E.TELEGRAM_CHAT_ID;
+          async function tgCall(method, body) {
+            const r = await fetch('https://api.telegram.org/bot' + E.TELEGRAM_BOT_TOKEN + '/' + method, { method: 'POST', body });
+            const j = await r.json().catch(() => ({}));
+            if (!j.ok) throw new Error(method + ': ' + (j.description || r.status));
+          }
+          function chunks(t, n) { const out = []; let s = String(t || '').trim();
+            while (s.length > n) { let i = s.lastIndexOf('\n', n); if (i < n / 2) i = n; out.push(s.slice(0, i)); s = s.slice(i).trim(); }
+            if (s) out.push(s); return out; }
+          async function tgSend(p) {
+            const text = String(p.text || '');
+            if (p.img && /^data:image\//.test(p.img)) {
+              const m = /^data:(image\/[a-z]+);base64,(.*)$/.exec(p.img);
+              const f = new FormData();
+              f.append('chat_id', E.TELEGRAM_CHAT_ID);
+              f.append('photo', new Blob([Buffer.from(m[2], 'base64')], { type: m[1] }), 'qs-kingdom.' + (m[1].split('/')[1] || 'png'));
+              const cap = text.length <= 1024 ? text : '';
+              if (cap) f.append('caption', cap);
+              await tgCall('sendPhoto', f);
+              if (!cap) for (const c of chunks(text, 4000)) { const g = new FormData(); g.append('chat_id', E.TELEGRAM_CHAT_ID); g.append('text', c); await tgCall('sendMessage', g); }
+            } else {
+              for (const c of chunks(text, 4000)) { const g = new FormData(); g.append('chat_id', E.TELEGRAM_CHAT_ID); g.append('text', c); await tgCall('sendMessage', g); }
+            }
+          }
+          (async () => {
+            const b = await chromium.launch();
+            let bad = 0;
+            for (const [name, email, pass] of accounts) {
+              if (!email || !pass) { console.log(name + ': no secrets saved, skipped.'); continue; }
+              const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: 'dark', timezoneId: 'America/New_York' });
+              const pg = await ctx.newPage();
+              try {
+                await pg.goto(E.SITE + '?_=' + Date.now(), { waitUntil: 'load', timeout: 60000 });
+                await pg.waitForSelector('#qa-email', { timeout: 60000 });
+                await pg.fill('#qa-email', email);
+                await pg.fill('#qa-pass', pass);
+                await pg.click('[data-q=signin]');
+                await pg.waitForFunction(() => window.qsIsAdmin && window.qsIsAdmin() && window.qsPublishDue, null, { timeout: 60000 });
+                await pg.waitForTimeout(3000);
+                const r = await pg.evaluate(() => window.qsPublishDue().then(x => x, e => ({ error: e.message })));
+                if (r.error) { bad++; console.log(name + ': ' + r.error); }
+                else if (!r.role) console.log(name + ': not assigned to a role in Planner > Accounts.');
+                else console.log(name + ' (' + r.role + '): posted ' + r.posted.length + (r.missed.length ? ', missed ' + r.missed.length : ''));
+                if (r.tg && r.tg.length) {
+                  if (!TG) console.log(name + ': ' + r.tg.length + ' post(s) waiting for Telegram, but TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are not saved.');
+                  else {
+                    const done = [];
+                    for (const p of r.tg) {
+                      try { await tgSend(p); done.push(p.id); console.log(name + ': sent ' + p.kind + ' to Telegram'); }
+                      catch (e) { bad++; console.log(name + ': Telegram failed (' + e.message + ')'); }
+                    }
+                    if (done.length) await pg.evaluate(ids => window.qsTgDone(ids), done);
+                  }
+                }
+              } catch (e) { bad++; console.log(name + ': could not sign in (' + e.message.split('\n')[0] + ')'); }
+              await ctx.close();
+            }
+            await b.close();
+            process.exit(bad ? 1 : 0);
+          })();
+          JS
+          node post.js
