@@ -2391,7 +2391,7 @@ var cfg=window.QS_FIREBASE||{},root=document.documentElement;
 if(!cfg.apiKey||/PASTE/.test(cfg.apiKey)||typeof firebase==='undefined')return;
 firebase.initializeApp(cfg);
 var auth=firebase.auth(),db=firebase.firestore();
-try{db.settings({experimentalAutoDetectLongPolling:true,merge:true});}catch(e){}
+try{db.settings({experimentalForceLongPolling:true,merge:true});}catch(e){}
 db.enablePersistence({synchronizeTabs:true}).catch(function(){});
 root.classList.add('locked','qs-cloud');
 var card=document.getElementById('ql-card'),T=document.getElementById('ql-title'),SB=document.getElementById('ql-sub');
