@@ -2392,7 +2392,7 @@ if(!cfg.apiKey||/PASTE/.test(cfg.apiKey)||typeof firebase==='undefined')return;
 firebase.initializeApp(cfg);
 var auth=firebase.auth(),db=firebase.firestore();
 try{db.settings({experimentalForceLongPolling:true,merge:true});}catch(e){}
-db.enablePersistence({synchronizeTabs:true}).catch(function(){});
+if(window.QTAndroid)db.enablePersistence({synchronizeTabs:true}).catch(function(){});else db.clearPersistence().catch(function(){});
 root.classList.add('locked','qs-cloud');
 var card=document.getElementById('ql-card'),T=document.getElementById('ql-title'),SB=document.getElementById('ql-sub');
 document.getElementById('ql-form').style.display='none';
