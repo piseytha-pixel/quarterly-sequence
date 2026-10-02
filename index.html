@@ -2504,9 +2504,11 @@ function stop(){
 function watchMe(){
   if(meUnsub){meUnsub();meUnsub=null;}
   if(!user)return;
-  meUnsub=db.collection('users').doc(user.uid).onSnapshot(function(d){
+  var offT=setTimeout(function(){if(mode!=='in')say('Can\u2019t reach the QS Kingdom server from this device. Check the internet, or turn off VPN / ad-blocker / antivirus web shield, then reload.');},15000);
+  meUnsub=db.collection('users').doc(user.uid).onSnapshot({includeMetadataChanges:true},function(d){
+    if(!d.metadata.fromCache){clearTimeout(offT);if(/reach the QS/.test(note))say('');}
     if(!d.exists){
-      if(signingUp)return;
+      if(signingUp||d.metadata.fromCache)return;
       var n=(user.displayName||(user.email||'member').split('@')[0]).slice(0,40);
       db.collection('users').doc(user.uid).set(profileDoc(n)).catch(function(){});
       db.collection('emails').doc(user.uid).set({email:user.email||''}).catch(function(){});
@@ -2514,7 +2516,7 @@ function watchMe(){
     }
     var u=d.data();myName=u.name||'';
     if(u.status==='approved'){if(mode!=='in'){mode='in';say('');start(user.uid);}}
-    else{if(mode==='in')stop();mode=u.status==='blocked'?'blocked':'pending';paint();}
+    else if(!d.metadata.fromCache||mode==='loading'){if(mode==='in')stop();mode=u.status==='blocked'?'blocked':'pending';paint();}
   },function(e){
     if(mode==='in')return;
     mode='signin';paint();say(/permission/i.test(e.message)?'This account can\u2019t be opened. Contact the admin.':'Can\u2019t reach the server: '+e.message);
@@ -5772,6 +5774,7 @@ window.__qtCarOpen=function(w){
   if(w==='invite'){var t=0;(function go(){if(X.on)window.qsInvite();else if(++t<30)setTimeout(go,500);})();return true;}
   return false;
 };
+document.addEventListener('qs-lang',function(){try{window.__qtCarCfg();}catch(e){}});   /* car speaks the new language at once */
 function carSync(){try{carBt();}catch(e){}try{appUpdate();}catch(e){}try{carWelcome();}catch(e){}try{carStats();}catch(e){}try{carBackup();}catch(e){}try{refEnsure();}catch(e){}try{window.__qtCarCfg();}catch(e){}try{carSSMT();}catch(e){}try{carPosts();}catch(e){}try{carNotes();}catch(e){}try{carPod();}catch(e){}}
 setInterval(function(){try{carSSMT();}catch(e){}},10*60e3);
 setInterval(function(){if(X.on)carSync();},30*60e3);
@@ -12015,11 +12018,13 @@ var T=[ // key, title, hint, default
  ['car_alert_ses','Session opens','Asia, London, New York, NYSE',true],
  ['car_alert_seq','Sequence opening alerts','From your alert plan',false],
  ['h','Drive'],
+ ['car_welcome','Welcome when I open','The car says and shows “Welcome to QS Kingdom”',true],
  ['car_morning','Hands-free morning plan','When you connect, 5–11 AM',true],
  ['car_brief','Spoken briefing','When you open QS Kingdom in the car',true],
  ['car_beeps','Countdown beeps','10, 5 and 1 minute before a News Sequence',true],
  ['car_market','Live market (Yahoo)','SSMT confirmed, reactions, price alerts · ~10 min delay',true],
  ['car_phone','Phone & watch alerts','When you are not driving',false],
+ ['car_score','Daily score','9:30 PM: today\u2019s News Sequences, SSMT and biggest reaction',true],
  ['car_hold','Quiet until I park','Holds alerts for this drive',false],
  ['h','Voice'],
  ['car_my_voice','My recorded voice','Your Kiri recordings',true]];
@@ -12039,6 +12044,13 @@ function paint(){
   h+=sel('car_lead','Alert time',[[1,'1 min before'],[5,'5 min before'],[10,'10 min before'],[15,'15 min before']],5);
   h+=sel('car_voice_rate','Speaking speed',[[85,'Slower'],[100,'Normal'],[115,'Faster']],100);
   h+=sel('car_tz','Times in',[[0,'New York'],[1,'Local'],[2,'Both']],2);
+  var mt=p.car_src==='mt5';
+  h+='<h3>Prices</h3><div class="qcp-r"><div class="t"><b>Price source</b><small>'+(mt?'Your MT5 bridge \u00b7 live':'Yahoo \u00b7 free, about 10 minutes behind')+'</small></div>'+
+     '<select data-src><option value="yahoo"'+(mt?'':' selected')+'>Yahoo</option><option value="mt5"'+(mt?' selected':'')+'>My MT5</option></select></div>';
+  if(mt)h+='<div class="qcp-note"><b>MT5 bridge</b> \u00b7 run start_qs_bridge.bat on your VPS, then copy what it shows:<br>'+
+     '<input data-t="car_mt5_url" placeholder="Link, e.g. http://203.0.113.5:8790" value="'+esc(p.car_mt5_url||'')+'" style="box-sizing:border-box;width:100%;margin:8px 0 6px;padding:8px;border-radius:8px;border:1px solid #38444d;background:#0f1419;color:#e7e9ea">'+
+     '<input data-t="car_mt5_token" placeholder="Token" value="'+esc(p.car_mt5_token||'')+'" style="box-sizing:border-box;width:100%;margin:0 0 8px;padding:8px;border-radius:8px;border:1px solid #38444d;background:#0f1419;color:#e7e9ea">'+
+     '<button class="qcp-go" data-mt5test>Test connection</button> <span id="qcp-mt5" style="margin-left:8px"></span></div>';
   h+='<h3>Setup</h3><div class="qcp-r"><div class="t"><b>Setup checklist</b><small>Permissions and Android Auto</small></div><button class="qcp-go" data-guide>Open</button></div>'+
      '<div class="qcp-r"><div class="t"><b>Update voice clips</b><small>New phrases from the website, no new APK</small></div><button class="qcp-go" data-voice>Check</button></div>';
   sheet.innerHTML=h;
@@ -12067,10 +12079,24 @@ sheet.addEventListener('click',function(e){
   if(b.dataset.pro){A.car('profile',b.dataset.pro,'');paint();return;}
   if(b.hasAttribute('data-guide')){page='guide';window.__qcpFromSet=true;paint();return;}
   if(b.hasAttribute('data-step')){STEPS[+b.dataset.step][4]();return;}
+  if(b.hasAttribute('data-mt5test')){
+    var u=(sheet.querySelector('[data-t=car_mt5_url]')||{}).value||'',tk=(sheet.querySelector('[data-t=car_mt5_token]')||{}).value||'';
+    A.car('pref','car_mt5_url','s:'+u.trim());A.car('pref','car_mt5_token','s:'+tk.trim());
+    var out=document.getElementById('qcp-mt5');out.textContent='Checking\u2026';out.style.color='#8b98a5';
+    setTimeout(function(){var r={};try{r=JSON.parse(A.car('mt5Test',u,tk)||'{}');}catch(x){}
+      if(r.ok){out.style.color='#22c55e';out.textContent='\u2713 Connected'+(r.nq?' \u00b7 NQ '+r.nq:'')+(r.account?' \u00b7 account '+r.account:'');
+        if(r.url&&r.url!==u.trim())A.car('pref','car_mt5_url','s:'+r.url);}
+      else{out.style.color='#f87171';out.textContent='\u2717 '+(r.error||'No answer')+'. Check the link, token and VPS firewall.';}},50);
+    return;
+  }
   if(b.hasAttribute('data-voice')){b.textContent='…';setTimeout(function(){var n=+A.car('voiceUpdate','','');
     b.textContent=n>0?n+' new':n===0?'Up to date':'Offline';},50);return;}
 });
-sheet.addEventListener('change',function(e){var s=e.target.closest('select[data-s]');if(s){A.car('pref',s.dataset.s,'i:'+s.value);A.car('pref','car_profile','s:');}});
+sheet.addEventListener('change',function(e){
+  var s=e.target.closest('select[data-s]');if(s){A.car('pref',s.dataset.s,'i:'+s.value);A.car('pref','car_profile','s:');}
+  var src=e.target.closest('select[data-src]');if(src){A.car('pref','car_src','s:'+src.value);paint();}
+  var t=e.target.closest('input[data-t]');if(t){A.car('pref',t.dataset.t,'s:'+t.value.trim());}
+});
 document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&root.classList.contains('on'))paint();});
 window.qsCarSettings=function(){page='set';paint();root.classList.add('on');};
 window.qsCarGuide=function(){page='guide';paint();root.classList.add('on');};
