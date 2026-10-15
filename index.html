@@ -2573,7 +2573,7 @@ html.m-phone .qp-map{background:var(--fb-card);}
 #tv-set .tvs-note code{font-family:var(--mono);color:var(--text);}
 #tv-set .tvs-stat{font-size:11px;color:var(--to);}
 html.m-phone #tv-sum,html.m-phone #tv-set{margin-left:4px;margin-right:4px;}
-#m-nav .m-nb[data-tab="SEQUENCE"],#m-nav .m-nb[data-tab="TXP"]{display:none!important;}
+#m-nav .m-nb[data-tab="SEQUENCE"],#m-nav .m-nb[data-tab="TXP"],#m-nav .m-nb[data-tab="TIME"]{display:none!important;}
 </style>
 <style id="pro-skin">
 /* ══ QS KINGDOM · PRO SKIN — one visual language across the app ══
@@ -3882,6 +3882,8 @@ var TILES={chart:[
   {ic:'moon',c:'var(--fb-muted)',t:'Dark mode',st:function(){return root.getAttribute('data-theme')!=='light';},go:function(){tap('theme-btn');}},
   {ic:'music',c:'var(--q4)',t:'Music',st:function(){return on('qt-music','on');},go:function(){tap('qt-music');}}
 ]};
+IC.time=svg('<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5"/><path d="M9 2h6"/>');
+TILES.chart.unshift({ic:'time',c:'var(--q2)',t:'Time',sub:'The quarters on the clock',go:function(){closeMenu();setTab('TIME');}});
 TILES.chart.unshift({ic:'txp',c:'var(--q4)',t:'TxP model',sub:'TxP and BnB reference',go:function(){closeMenu();setTab('TXP');}});
 TILES.chart.unshift({ic:'sequence',c:'var(--q3)',t:'Sequence',sub:'Live sequences and signals',go:function(){closeMenu();setTab('SEQUENCE');}});
 TILES.app.unshift({ic:'book',c:'var(--fb-blue)',t:'Journal',sub:'Your posts and profile',go:function(){openProfile(X.me);}});
