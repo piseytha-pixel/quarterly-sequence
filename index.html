@@ -2026,6 +2026,7 @@ html:not(.x-skin) .xt-scroll{gap:8px;}
 /* ── News page (bottom bar): releases with the quarters they land in ── */
 #m-newsp{display:none;flex:1;min-height:0;overflow-y:auto;background:var(--fb-bg);-webkit-overflow-scrolling:touch;}
 html.m-newsp #m-newsp{display:block;}html.m-newsp #work,html.m-newsp #drawer,html.m-newsp #m-chips,html.m-newsp #news-bar,html.m-newsp #view-sequence,html.m-newsp #view-txp,html.m-newsp #m-menu,html.m-newsp #m-social,html.m-newsp #m-profile,html.m-newsp #view-time{display:none!important;}
+#m-arcp .arc-lock{flex:1;display:grid;place-items:center;padding:24px}#m-arcp .arc-lock-in{max-width:340px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}#m-arcp .arc-lock-ic{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--fb-tint);color:var(--fb-blue-t)}#m-arcp .arc-lock-ic svg{width:28px;height:28px}#m-arcp .arc-lock b{font-size:20px;color:var(--fb-text)}#m-arcp .arc-lock p{margin:0;color:var(--fb-muted);font-size:14.5px;line-height:1.5}#m-arcp .arc-lock-btn{margin-top:6px;border:0;border-radius:999px;padding:10px 20px;font:600 14px var(--sans);background:var(--fb-blue);color:#fff;cursor:pointer}
 #m-arcp{display:none;flex:1;min-height:0;background:var(--canvas);}@media (min-width:1100px){#m-arcp{grid-column:1/-1;grid-row:2/5;}}html.m-arcp #m-arcp{display:flex;}#m-arcp iframe{flex:1;width:100%;height:100%;border:0;display:block;background:var(--canvas);}html.m-arcp #work,html.m-arcp #drawer,html.m-arcp #m-chips,html.m-arcp #news-bar,html.m-arcp #view-sequence,html.m-arcp #view-txp,html.m-arcp #m-menu,html.m-arcp #m-social,html.m-arcp #m-profile,html.m-arcp #view-time,html.m-arcp #m-newsp,html.m-arcp #m-planp,html.m-arcp #m-memp{display:none!important;}html.m-arcp #m-nav #m-arc-btn{color:var(--fb-blue);}html.m-arcp #m-nav .m-nb.active:not(#m-arc-btn){color:var(--fb-muted);}html.m-arcp #m-nav .m-nb.active:not(#m-arc-btn)::before{display:none;}html.x-skin.m-arcp #m-nav #m-arc-btn{color:var(--fb-text);opacity:1;}html.x-skin.m-arcp #m-nav #m-arc-btn svg{stroke-width:2.6;}html.x-skin.m-arcp #m-nav .m-nb.active:not(#m-arc-btn),html.x-skin.m-arcp #m-nav #m-soc-btn,html.x-skin.m-arcp #m-nav #m-menu-btn,html.x-skin.m-arcp #m-nav #m-news-btn{opacity:.5;}
 #m-nav #m-news-btn{position:relative;}
 #m-nav #m-news-btn .nw-dot{position:absolute;top:5px;left:calc(50% + 6px);width:10px;height:10px;border-radius:50%;background:#e41e3f;border:2px solid var(--fb-bg);display:none;}
@@ -4475,9 +4476,20 @@ var arb=mk('button','m-arc-btn','m-nb',svg('<rect x="3" y="3" width="18" height=
 nav.insertBefore(arb,nwb.nextSibling);
 var arp=mk('section','m-arcp');
 app.insertBefore(arp,nav);
+function arcAccess(){try{return window.qsArcAccess?window.qsArcAccess():'out';}catch(e){return 'out';}}
+function arcLocked(st){
+  arp.innerHTML='<div class="arc-lock"><div class="arc-lock-in"><div class="arc-lock-ic">'+svg('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>')+'</div>'+
+    '<b>QS Kingdom\u2019s Arcana</b><p>'+(st==='out'?'Sign in to the community first. Arcana is invite-only.':'Arcana is invite-only. Ask an admin to invite you.')+'</p>'+
+    (st==='out'?'<button type="button" class="arc-lock-btn" id="arc-lock-in">Open Community</button>':'')+'</div></div>';
+  var bt=document.getElementById('arc-lock-in');if(bt)bt.onclick=function(){try{leaveOverlays();openSocial();}catch(e){}};
+  arp.dataset.st='locked';
+}
 function openArcana(){
   closeProfile();root.classList.remove('m-menu','m-social','m-newsp','m-planp','m-memp');
   if(X.feedUnsub){X.feedUnsub();X.feedUnsub=null;}
+  var st=arcAccess();
+  if(st!=='admin'&&st!=='invited'){arcLocked(st);root.classList.add('m-arcp');return;}
+  if(arp.dataset.st==='locked'){arp.innerHTML='';arp.dataset.st='';}
   if(!arp.firstChild){
     var f=document.createElement('iframe');f.title="QS Kingdom\u2019s Arcana";
     try{var b=atob(ARC_SRC),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);f.srcdoc=new TextDecoder('utf-8').decode(u);}catch(e){}
@@ -4487,6 +4499,8 @@ function openArcana(){
   window.dispatchEvent(new Event('resize'));
 }
 arb.addEventListener('click',function(){if(!root.classList.contains('m-arcp'))openArcana();});
+setInterval(function(){if(!root.classList.contains('m-arcp'))return;var st=arcAccess(),ok=st==='admin'||st==='invited';
+  if(ok&&arp.dataset.st==='locked')openArcana();else if(!ok&&arp.dataset.st!=='locked'){arcLocked(st);}},3000);
 // the app's own news for Arcana: the releases your News settings show; true = fetch again
 window.__qtArcNews=function(refresh){
   try{
@@ -5635,6 +5649,7 @@ function dpWait(test,ms){
   return new Promise(function(ok){var t0=Date.now();(function w(){if(test()||Date.now()-t0>ms)ok();else setTimeout(w,400);})();});
 }
 window.qsIsAdmin=function(){return isAdmin();};
+window.qsArcAccess=function(){return isAdmin()?'admin':(X.on&&U(X.me).arcana===true)?'invited':X.on?'member':'out';};
 // force=true posts even when today's post already exists.
 window.qsDailyPost=function(force){
   if(!isAdmin())return Promise.reject(new Error('Only the admin can post the daily update.'));
@@ -6146,9 +6161,12 @@ function onTap(e){
     if(a==='admin'){
       var uid1=X.profUid;
       jMenu('Admin \u00b7 '+nm(uid1),[{k:'block',l:'Remove from community',d:'They won\u2019t be able to sign in',ic:JI.block,danger:true},
-        {k:'mkadmin',l:U(uid1).role==='admin'?'Remove admin':'Make admin',ic:JI.shield},{k:'cancel',l:'Cancel'}],function(k){
-          X.db.collection('users').doc(uid1).update(k==='block'?{status:'blocked'}:{role:U(uid1).role==='admin'?'user':'admin'})
-            .then(function(){jToast('Done');if(k==='block')closeProfile();},fail);
+        {k:'mkadmin',l:U(uid1).role==='admin'?'Remove admin':'Make admin',ic:JI.shield},
+        {k:'arcana',l:U(uid1).arcana===true?'Remove Arcana access':'Invite to Arcana',d:U(uid1).arcana===true?'They can open Arcana now':'Only invited members can open Arcana',ic:JI.shield},{k:'cancel',l:'Cancel'}],function(k){
+          if(k!=='block'&&k!=='mkadmin'&&k!=='arcana')return;
+          var arc=U(uid1).arcana===true;
+          X.db.collection('users').doc(uid1).update(k==='block'?{status:'blocked'}:k==='arcana'?{arcana:!arc}:{role:U(uid1).role==='admin'?'user':'admin'})
+            .then(function(){jToast(k==='arcana'?(arc?'Arcana access removed':'Invited to Arcana'):'Done');if(k==='block')closeProfile();},fail);
         });
       return;
     }
