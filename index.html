@@ -4485,6 +4485,7 @@ function arcLocked(st){
   arp.dataset.st='locked';
 }
 function openArcana(){
+  if(!(window.qsArcOK&&window.qsArcOK())){arcSync();return;}
   closeProfile();root.classList.remove('m-menu','m-social','m-newsp','m-planp','m-memp');
   if(X.feedUnsub){X.feedUnsub();X.feedUnsub=null;}
   var st=arcAccess();
@@ -4499,8 +4500,17 @@ function openArcana(){
   window.dispatchEvent(new Event('resize'));
 }
 arb.addEventListener('click',function(){if(!root.classList.contains('m-arcp'))openArcana();});
-setInterval(function(){if(!root.classList.contains('m-arcp'))return;var st=arcAccess(),ok=st==='admin'||st==='invited';
-  if(ok&&arp.dataset.st==='locked')openArcana();else if(!ok&&arp.dataset.st!=='locked'){arcLocked(st);}},3000);
+function arcSync(){
+  var ok=false;try{ok=window.qsArcOK&&window.qsArcOK();}catch(e){}
+  arb.style.display=ok?'':'none';
+  var tb=document.getElementById('arc-btn');if(tb)tb.style.display=ok?'':'none';
+  if(!ok){
+    if(arp.firstChild){arp.innerHTML='';arp.dataset.st='';}            // drop Arcana from the page entirely
+    if(root.classList.contains('m-arcp')){root.classList.remove('m-arcp');window.dispatchEvent(new Event('resize'));}
+  }
+  if(ok!==arcSync.last){arcSync.last=ok;try{staticDirty=true;}catch(e){}}
+}
+arcSync();setInterval(arcSync,2000);
 // the app's own news for Arcana: the releases your News settings show; true = fetch again
 window.__qtArcNews=function(refresh){
   try{
@@ -5649,6 +5659,7 @@ function dpWait(test,ms){
   return new Promise(function(ok){var t0=Date.now();(function w(){if(test()||Date.now()-t0>ms)ok();else setTimeout(w,400);})();});
 }
 window.qsIsAdmin=function(){return isAdmin();};
+window.qsArcOK=function(){try{var a=window.qsArcAccess();return a==='admin'||a==='invited';}catch(e){return false;}};
 window.qsArcAccess=function(){return isAdmin()?'admin':(X.on&&U(X.me).arcana===true)?'invited':X.on?'member':'out';};
 // force=true posts even when today's post already exists.
 window.qsDailyPost=function(force){
@@ -8792,7 +8803,7 @@ function arcName(lvl,b){
   return pad2(_arT.hour)+':'+pad2(_arT.minute)+(lvl>=8?':'+pad2(_arT.second):'');
 }
 function drawArcana(ctx,W,H,vis){
-  if(!S.showArc)return;
+  if(!S.showArc||!(window.qsArcOK&&window.qsArcOK()))return;
   const range=S.viewEnd-S.viewStart,cw=plotW(),x0=LABEL_W,x1=LABEL_W+cw,ppm=cw/range;
   const fc=new Map(),F=function(t){const k=Math.floor(t/1000);let v=fc.get(k);if(!v){v=arcFocus(t);fc.set(k,v);}return v;};
   const mark=function(lvl,b){
