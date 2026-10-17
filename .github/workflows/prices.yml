@@ -1,6 +1,10 @@
 # Copies the prices Arcana's charts need (Yahoo Finance futures / FX / metals, Binance crypto)
 # into the "prices" branch every 5 minutes, so Arcana works even where those sites are blocked.
 # The branch keeps a single commit (it is overwritten each time), so the repository stays small.
+#
+# Files: p/{ID}_{kind}.json = {c:[[t,o,h,l,c],...], last, prev, at}
+#   m1 / m5 / h1           live charts (every run)
+#   d1 / h1x / m5x / m1x   long history for the Score tab (refreshed once an hour)
 name: Update prices
 
 on:
@@ -18,29 +22,49 @@ concurrency:
 jobs:
   prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 8
     steps:
-      - name: Download prices
+      - name: Keep the long history from the last run
         run: |
           mkdir -p out/p
+          if git clone -q --depth 1 -b prices "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" old 2>/dev/null; then
+            cp old/p/*_d1.json old/p/*_h1x.json old/p/*_m5x.json old/p/*_m1x.json out/p/ 2>/dev/null || true
+          fi
+
+      - name: Download prices
+        run: |
           cat > /tmp/px.py <<'PY'
-          import json, time, urllib.request, sys
+          import json, os, time, urllib.request, sys
           UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36'}
           YH = {'ES':'ES=F','NQ':'NQ=F','YM':'YM=F','RTY':'RTY=F','EURUSD':'EURUSD=X','GBPUSD':'GBPUSD=X',
                 'DXY':'DX-Y.NYB','GC':'GC=F','SI':'SI=F','PL':'PL=F'}
           BN = {'BTC':'BTCUSDT','ETH':'ETHUSDT','SOL':'SOLUSDT'}
-          KIND = {'m1':('1m','1d',1000),'m5':('5m','5d',1000),'h1':('60m','1mo',800)}
+          # kind: (yahoo interval, yahoo range, binance interval, binance bars, max age in seconds)
+          KIND = {'m1':('1m','1d','1m',1000,0), 'm5':('5m','5d','5m',1000,0), 'h1':('60m','1mo','1h',800,0),
+                  'd1':('1d','2y','1d',730,3600), 'h1x':('60m','6mo','1h',4400,3600),
+                  'm5x':('5m','1mo','5m',8800,3600), 'm1x':('1m','5d','1m',7200,3600)}
+          now = time.time()
           def get(u):
+              err = None
               for host in ([u] if 'yahoo' not in u else [u, u.replace('//query1.', '//query2.')]):
-                  try:
-                      with urllib.request.urlopen(urllib.request.Request(host, headers=UA), timeout=20) as r:
-                          return json.loads(r.read())
-                  except Exception as e:
-                      err = e
+                  for _ in range(2):
+                      try:
+                          with urllib.request.urlopen(urllib.request.Request(host, headers=UA), timeout=25) as r:
+                              return json.loads(r.read())
+                      except Exception as e:
+                          err = e; time.sleep(1)
               raise err
+          def fresh(path, age):
+              if not age or not os.path.exists(path): return False
+              try: return now - json.load(open(path)).get('at', 0) / 1000 < age
+              except Exception: return False
+          def save(path, c, last, prev):
+              json.dump({'c': c, 'last': last, 'prev': prev, 'at': int(time.time()*1000)}, open(path, 'w'), separators=(',', ':'))
           ok = 0
           for id_, sym in YH.items():
-              for k, (iv, rg, _) in KIND.items():
+              for k, (iv, rg, _, _, age) in KIND.items():
+                  path = f'out/p/{id_}_{k}.json'
+                  if fresh(path, age): ok += 1; continue
                   try:
                       j = get(f'https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval={iv}&range={rg}&includePrePost=true')
                       r = j['chart']['result'][0]; q = r['indicators']['quote'][0]; c = []
@@ -49,21 +73,26 @@ jobs:
                           if None in v: continue
                           c.append([t * 1000] + [round(x, 6) for x in v])
                       m = r['meta']
-                      json.dump({'c': c, 'last': m.get('regularMarketPrice'), 'prev': m.get('chartPreviousClose', m.get('previousClose')), 'at': int(time.time()*1000)},
-                                open(f'out/p/{id_}_{k}.json', 'w'), separators=(',', ':'))
+                      save(path, c, m.get('regularMarketPrice'), m.get('chartPreviousClose', m.get('previousClose')))
                       ok += 1
                   except Exception as e:
                       print(id_, k, 'failed:', e)
                   time.sleep(0.4)
           for id_, sym in BN.items():
-              for k, (iv, _, lim) in KIND.items():
-                  iv2 = '1h' if iv == '60m' else iv
+              for k, (_, _, iv, total, age) in KIND.items():
+                  path = f'out/p/{id_}_{k}.json'
+                  if fresh(path, age): ok += 1; continue
                   for host in ['https://data-api.binance.vision', 'https://api.binance.com']:
                       try:
-                          a = get(f'{host}/api/v3/klines?symbol={sym}&interval={iv2}&limit={lim}')
-                          c = [[int(x[0]), float(x[1]), float(x[2]), float(x[3]), float(x[4])] for x in a]
-                          json.dump({'c': c, 'last': c[-1][4] if c else None, 'prev': None, 'at': int(time.time()*1000)},
-                                    open(f'out/p/{id_}_{k}.json', 'w'), separators=(',', ':'))
+                          c, end = [], None
+                          while len(c) < total:      # Binance gives at most 1000 bars per request: page back in time
+                              lim = min(1000, total - len(c))
+                              a = get(f'{host}/api/v3/klines?symbol={sym}&interval={iv}&limit={lim}' + (f'&endTime={end}' if end else ''))
+                              if not a: break
+                              c = [[int(x[0]), float(x[1]), float(x[2]), float(x[3]), float(x[4])] for x in a] + c
+                              end = int(a[0][0]) - 1
+                              if len(a) < lim: break
+                          save(path, c, c[-1][4] if c else None, None)
                           ok += 1; break
                       except Exception as e:
                           print(id_, k, host, 'failed:', e)
