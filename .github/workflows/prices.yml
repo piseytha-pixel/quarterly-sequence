@@ -1,0 +1,84 @@
+# Copies the prices Arcana's charts need (Yahoo Finance futures / FX / metals, Binance crypto)
+# into the "prices" branch every 5 minutes, so Arcana works even where those sites are blocked.
+# The branch keeps a single commit (it is overwritten each time), so the repository stays small.
+name: Update prices
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"     # every 5 minutes (GitHub may run it a few minutes late)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: true
+
+jobs:
+  prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Download prices
+        run: |
+          mkdir -p out/p
+          cat > /tmp/px.py <<'PY'
+          import json, time, urllib.request, sys
+          UA = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36'}
+          YH = {'ES':'ES=F','NQ':'NQ=F','YM':'YM=F','RTY':'RTY=F','EURUSD':'EURUSD=X','GBPUSD':'GBPUSD=X',
+                'DXY':'DX-Y.NYB','GC':'GC=F','SI':'SI=F','PL':'PL=F'}
+          BN = {'BTC':'BTCUSDT','ETH':'ETHUSDT','SOL':'SOLUSDT'}
+          KIND = {'m1':('1m','1d',1000),'m5':('5m','5d',1000),'h1':('60m','1mo',800)}
+          def get(u):
+              for host in ([u] if 'yahoo' not in u else [u, u.replace('//query1.', '//query2.')]):
+                  try:
+                      with urllib.request.urlopen(urllib.request.Request(host, headers=UA), timeout=20) as r:
+                          return json.loads(r.read())
+                  except Exception as e:
+                      err = e
+              raise err
+          ok = 0
+          for id_, sym in YH.items():
+              for k, (iv, rg, _) in KIND.items():
+                  try:
+                      j = get(f'https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval={iv}&range={rg}&includePrePost=true')
+                      r = j['chart']['result'][0]; q = r['indicators']['quote'][0]; c = []
+                      for i, t in enumerate(r.get('timestamp') or []):
+                          v = [q['open'][i], q['high'][i], q['low'][i], q['close'][i]]
+                          if None in v: continue
+                          c.append([t * 1000] + [round(x, 6) for x in v])
+                      m = r['meta']
+                      json.dump({'c': c, 'last': m.get('regularMarketPrice'), 'prev': m.get('chartPreviousClose', m.get('previousClose')), 'at': int(time.time()*1000)},
+                                open(f'out/p/{id_}_{k}.json', 'w'), separators=(',', ':'))
+                      ok += 1
+                  except Exception as e:
+                      print(id_, k, 'failed:', e)
+                  time.sleep(0.4)
+          for id_, sym in BN.items():
+              for k, (iv, _, lim) in KIND.items():
+                  iv2 = '1h' if iv == '60m' else iv
+                  for host in ['https://data-api.binance.vision', 'https://api.binance.com']:
+                      try:
+                          a = get(f'{host}/api/v3/klines?symbol={sym}&interval={iv2}&limit={lim}')
+                          c = [[int(x[0]), float(x[1]), float(x[2]), float(x[3]), float(x[4])] for x in a]
+                          json.dump({'c': c, 'last': c[-1][4] if c else None, 'prev': None, 'at': int(time.time()*1000)},
+                                    open(f'out/p/{id_}_{k}.json', 'w'), separators=(',', ':'))
+                          ok += 1; break
+                      except Exception as e:
+                          print(id_, k, host, 'failed:', e)
+          print('saved', ok, 'files')
+          if ok == 0: sys.exit(1)
+          PY
+          python3 /tmp/px.py
+
+      - name: Publish to the prices branch
+        run: |
+          cd out
+          git init -q -b prices
+          git config user.name "prices-bot"
+          git config user.email "prices-bot@users.noreply.github.com"
+          echo "Prices for QS Kingdom's Arcana, refreshed every 5 minutes by .github/workflows/prices.yml" > README.md
+          git add -A
+          git commit -q -m "Prices $(TZ=America/New_York date '+%a %b %d %H:%M') NY"
+          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" prices
