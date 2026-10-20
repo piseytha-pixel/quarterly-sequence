@@ -1,5 +1,7 @@
 # Copies the prices Arcana's charts need (Yahoo Finance futures / FX / metals, Binance crypto)
-# into the "prices" branch every 5 minutes, so Arcana works even where those sites are blocked.
+# into the "prices" branch every 3 minutes, so Arcana works even where those sites are blocked.
+# GitHub starts scheduled runs late (often hours apart), so each run keeps refreshing for about
+# 5 h 40 min; the next run takes over (free for public repositories).
 # The branch keeps a single commit (it is overwritten each time), so the repository stays small.
 #
 # Files: p/{ID}_{kind}.json = {c:[[t,o,h,l,c],...], last, prev, at}
@@ -22,7 +24,7 @@ concurrency:
 jobs:
   prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 350
     steps:
       - name: Keep the long history from the last run
         run: |
@@ -31,7 +33,7 @@ jobs:
             cp old/p/*_d1.json old/p/*_h1x.json old/p/*_m5x.json old/p/*_m1x.json out/p/ 2>/dev/null || true
           fi
 
-      - name: Download prices
+      - name: Write the price script
         run: |
           cat > /tmp/px.py <<'PY'
           import json, os, time, urllib.request, sys
@@ -99,15 +101,16 @@ jobs:
           print('saved', ok, 'files')
           if ok == 0: sys.exit(1)
           PY
-          python3 /tmp/px.py
 
-      - name: Publish to the prices branch
+      - name: Refresh and publish every 3 minutes
         run: |
-          cd out
-          git init -q -b prices
-          git config user.name "prices-bot"
-          git config user.email "prices-bot@users.noreply.github.com"
-          echo "Prices for QS Kingdom's Arcana, refreshed every 5 minutes by .github/workflows/prices.yml" > README.md
-          git add -A
-          git commit -q -m "Prices $(TZ=America/New_York date '+%a %b %d %H:%M') NY"
-          git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" prices
+          START=$(date +%s)
+          while true; do
+            python3 /tmp/px.py || echo 'download failed this round'
+            ( cd out && rm -rf .git && git init -q -b prices && git config user.name "prices-bot" && git config user.email "prices-bot@users.noreply.github.com" \
+              && echo "Prices for QS Kingdom's Arcana, refreshed every 3 minutes by .github/workflows/prices.yml" > README.md \
+              && git add -A && git commit -q -m "Prices $(TZ=America/New_York date '+%a %b %d %H:%M') NY" \
+              && git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" prices ) || echo 'publish failed this round'
+            [ $(( $(date +%s) - START )) -gt 20400 ] && break
+            sleep 150
+          done
