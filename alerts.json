@@ -1,0 +1,7 @@
+{
+  "_help": "SSMT alerts sent to Telegram by .github/workflows/prices.yml while the app is closed. levels: which predicted cycles to watch and which market groups (idx = ES NQ YM RTY, fx = EU GU DXY, met = Gold Silver Plat, cry = BTC ETH SOL). ssmt: send when an SSMT forms; tcisd: send when the tCISD confirms (the entry).",
+  "on": true,
+  "levels": { "day": ["idx", "fx"], "m90": ["idx"], "micro": [] },
+  "ssmt": true,
+  "tcisd": true
+}

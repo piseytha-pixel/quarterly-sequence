@@ -31,6 +31,7 @@ jobs:
           mkdir -p out/p
           if git clone -q --depth 1 -b prices "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" old 2>/dev/null; then
             cp old/p/*_d1.json old/p/*_h1x.json old/p/*_m5x.json old/p/*_m1x.json out/p/ 2>/dev/null || true
+            cp old/alerts_sent.json out/ 2>/dev/null || true
           fi
 
       - name: Write the price script
@@ -102,11 +103,21 @@ jobs:
           if ok == 0: sys.exit(1)
           PY
 
+      - name: Get a browser for the alerts
+        run: |
+          mkdir -p /tmp/al && cd /tmp/al && npm init -y >/dev/null && npm i playwright@1.47.2 >/dev/null && npx playwright install --with-deps chromium >/dev/null || echo 'no browser: alerts off this run'
+
       - name: Refresh and publish every 3 minutes
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           START=$(date +%s)
           while true; do
             python3 /tmp/px.py || echo 'download failed this round'
+            # SSMT / 2-Stage / tCISD alerts to Telegram (settings: alerts.json on main)
+            ( rm -rf site && git clone -q --depth 1 "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" site \
+              && cp site/tools/alerts.js /tmp/al/alerts.js && cd /tmp/al && node alerts.js "$GITHUB_WORKSPACE/out" "$GITHUB_WORKSPACE/site" ) || echo 'alerts skipped this round'
             ( cd out && rm -rf .git && git init -q -b prices && git config user.name "prices-bot" && git config user.email "prices-bot@users.noreply.github.com" \
               && echo "Prices for QS Kingdom's Arcana, refreshed every 3 minutes by .github/workflows/prices.yml" > README.md \
               && git add -A && git commit -q -m "Prices $(TZ=America/New_York date '+%a %b %d %H:%M') NY" \
