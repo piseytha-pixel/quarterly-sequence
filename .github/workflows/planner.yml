@@ -84,7 +84,7 @@ jobs:
           console.log = (...a) => { const t = a.join(' '); _log(t); _log((/failed|error|could not|missed/i.test(t) ? '::warning title=Planner::' : '::notice title=Planner::') + t.replace(/\r?\n/g, ' ').slice(0, 900)); };
           (async () => {
             const b = await chromium.launch();
-            let bad = 0;
+            let bad = 0, tgBad = 0;
             for (const [name, email, pass] of accounts) {
               if (!email || !pass) { console.log(name + ': no secrets saved, skipped.'); continue; }
               const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: 'dark', timezoneId: 'America/New_York' });
@@ -107,7 +107,7 @@ jobs:
                     const done = [];
                     for (const p of r.tg) {
                       try { await tgSend(p); done.push(p.id); console.log(name + ': sent ' + p.kind + ' to Telegram'); }
-                      catch (e) { bad++; console.log(name + ': Telegram failed (' + e.message + ')'); }
+                      catch (e) { tgBad++; console.log(name + ': Telegram failed (' + e.message + ')'); }
                     }
                     if (done.length) await pg.evaluate(ids => window.qsTgDone(ids), done);
                   }
@@ -116,6 +116,7 @@ jobs:
               await ctx.close();
             }
             await b.close();
+            if (tgBad) console.log('Telegram: ' + tgBad + ' post(s) not sent. Check TELEGRAM_CHAT_ID and that the bot is an admin of the channel. They stay queued and go out once it works.');
             process.exit(bad ? 1 : 0);
           })();
           JS
