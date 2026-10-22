@@ -79,6 +79,9 @@ jobs:
               for (const c of chunks(text, 4000)) { const g = new FormData(); g.append('chat_id', E.TELEGRAM_CHAT_ID); g.append('text', c); await tgCall('sendMessage', g); }
             }
           }
+          // every line also goes up as a GitHub annotation, so the result shows without opening the log
+          const _log = console.log;
+          console.log = (...a) => { const t = a.join(' '); _log(t); _log((/failed|error|could not|missed/i.test(t) ? '::warning title=Planner::' : '::notice title=Planner::') + t.replace(/\r?\n/g, ' ').slice(0, 900)); };
           (async () => {
             const b = await chromium.launch();
             let bad = 0;
