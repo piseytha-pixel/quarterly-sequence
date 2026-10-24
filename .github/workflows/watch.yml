@@ -1,0 +1,56 @@
+name: Apple Watch build
+on:
+  push:
+    branches: [watch]
+    paths: ['watch/**', '.github/workflows/watch.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test — the watch's prediction must match Arcana
+        working-directory: watch
+        run: swiftc -O Shared/Arc.swift Tests/main.swift -o /tmp/arctest && /tmp/arctest Tests/vectors.json
+      - name: Make the Xcode project
+        working-directory: watch
+        run: brew install xcodegen && xcodegen generate
+      - name: Build for Apple Watch (device, unsigned)
+        working-directory: watch
+        run: |
+          set -o pipefail
+          xcodebuild -project ArcanaWatch.xcodeproj -scheme ArcanaWatch -destination 'generic/platform=watchOS' -configuration Release CODE_SIGNING_ALLOWED=NO build | tail -40
+      - name: Build for the watch simulator
+        working-directory: watch
+        run: |
+          set -o pipefail
+          xcodebuild -project ArcanaWatch.xcodeproj -scheme ArcanaWatch -sdk watchsimulator -configuration Debug -derivedDataPath /tmp/dd CODE_SIGNING_ALLOWED=NO build | tail -20
+      - name: Screenshots from the simulator
+        continue-on-error: true
+        working-directory: watch
+        run: |
+          mkdir -p shots
+          DEV=$(xcrun simctl list devices available | grep -m1 -E "Apple Watch Series (10|9).*(46|45)mm" | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')
+          [ -z "$DEV" ] && DEV=$(xcrun simctl list devices available | grep -m1 "Apple Watch" | sed -E 's/.*\(([0-9A-F-]{36})\).*/\1/')
+          echo "device $DEV"
+          xcrun simctl boot "$DEV"; sleep 20
+          APP=$(find /tmp/dd/Build/Products -name "Arcana.app" -maxdepth 3 | head -1)
+          xcrun simctl install "$DEV" "$APP"
+          for f in turq diver dress pilot chrono champ digital; do
+            xcrun simctl terminate "$DEV" com.quartersequence.arcana.watch || true
+            xcrun simctl spawn "$DEV" defaults write com.quartersequence.arcana.watch face -string $f
+            xcrun simctl launch "$DEV" com.quartersequence.arcana.watch; sleep 8
+            xcrun simctl io "$DEV" screenshot shots/$f.png
+          done
+      - name: Publish the project to the watch-out branch
+        run: |
+          mkdir -p /tmp/out
+          cd watch && rm -rf build && zip -qr /tmp/out/ArcanaWatch.zip . -x 'shots/*' && cp -r shots /tmp/out/ 2>/dev/null || true
+          cd /tmp/out
+          git init -q
+          git checkout -q -b watch-out
+          git add .
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "Watch build ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" watch-out
