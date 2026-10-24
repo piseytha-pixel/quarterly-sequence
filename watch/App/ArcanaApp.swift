@@ -11,7 +11,7 @@ struct ArcanaApp: App {
             .onChange(of: phase) { _, p in
                 guard p == .active else { return }
                 Arc.fridayWrap = fri
-                Task { await Notifier.schedule() }
+                if !UserDefaults.standard.bool(forKey: "noPrompt") { Task { await Notifier.schedule() } }
                 Refresh.plan()
             }
             .backgroundTask(.appRefresh) { _ in

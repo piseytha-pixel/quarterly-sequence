@@ -41,7 +41,7 @@ jobs:
           for f in turq diver dress pilot chrono champ digital; do
             xcrun simctl terminate "$DEV" com.quartersequence.arcana.watch || true
             xcrun simctl spawn "$DEV" defaults write com.quartersequence.arcana.watch face -string $f
-            xcrun simctl launch "$DEV" com.quartersequence.arcana.watch; sleep 8
+            xcrun simctl launch "$DEV" com.quartersequence.arcana.watch -noPrompt YES; sleep 8
             xcrun simctl io "$DEV" screenshot shots/$f.png
           done
       - name: Publish the project to the watch-out branch
