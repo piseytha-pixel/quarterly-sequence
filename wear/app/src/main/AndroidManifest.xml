@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-feature android:name="android.hardware.type.watch" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="QS Arcana Watch">
+        <meta-data android:name="com.google.android.wearable.standalone" android:value="true" />
+        <service
+            android:name=".PredictionChronoFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Prediction Chrono"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_turq" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_turq" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".DiverFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Diver GMT"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_diver" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_diver" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".DressFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Dress"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_dress" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_dress" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".PilotFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Pilot"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_pilot" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_pilot" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".ChronoFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Chronograph"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_chrono" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_chrono" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".ChampagneFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Champagne"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_champ" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_champ" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+        <service
+            android:name=".DigitalFace"
+            android:directBootAware="true"
+            android:exported="true"
+            android:label="Arcana Digital"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+                <category android:name="com.google.android.wearable.watchface.category.WATCH_FACE" />
+            </intent-filter>
+            <meta-data android:name="com.google.android.wearable.watchface.preview" android:resource="@drawable/preview_digital" />
+            <meta-data android:name="com.google.android.wearable.watchface.preview_circular" android:resource="@drawable/preview_digital" />
+            <meta-data android:name="android.service.wallpaper" android:resource="@xml/watch_face" />
+            <meta-data android:name="android.service.wallpaper.square_mode" android:value="false" />
+        </service>
+    </application>
+</manifest>

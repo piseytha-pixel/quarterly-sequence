@@ -1,0 +1,36 @@
+name: Wear OS build
+on:
+  push:
+    branches: [wear]
+    paths: ['wear/**', '.github/workflows/wear.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Test — the watch's prediction must match Arcana
+        working-directory: wear
+        run: gradle :app:testReleaseUnitTest --no-daemon --stacktrace
+      - name: Build the watch app
+        working-directory: wear
+        run: gradle :app:assembleRelease --no-daemon --stacktrace
+      - name: Publish the APK to the wear-out branch
+        run: |
+          mkdir -p /tmp/out
+          cp wear/app/build/outputs/apk/release/app-release-unsigned.apk /tmp/out/arcana-wear-unsigned.apk
+          cd /tmp/out
+          git init -q
+          git checkout -q -b wear-out
+          git add .
+          git -c user.name=ci -c user.email=ci@users.noreply.github.com commit -qm "Wear build ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" wear-out
