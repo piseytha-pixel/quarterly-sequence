@@ -1,0 +1,123 @@
+# QS Kingdom Clone Watch: every 30 minutes, signs in as the main admin, looks for
+# copies of the website reported by the clone beacon (Firestore "qs_clones"), and
+# posts a warning card for each new copy to the community.
+#   - Only the copy's domain is shown; no personal details are looked up.
+#   - Translators, web archives, caches and dev previews are skipped (window.qsCloneSkip).
+#   - A copy must be seen at least twice (or over more than an hour) in the last 7 days.
+#   - Each copy is posted once. Set a clone's status to "ignored", "ok" or "allowed"
+#     in the admin tools to keep it from being posted.
+name: Clone Watch
+
+on:
+  schedule:
+    - cron: "17,47 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: clones
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools/clone-card.html
+          sparse-checkout-cone-mode: false
+
+      - name: Get a browser
+        run: |
+          mkdir -p /tmp/qs && cd /tmp/qs
+          npm init -y >/dev/null
+          npm i playwright@1.47.2 >/dev/null
+          npx playwright install --with-deps chromium >/dev/null
+
+      - name: Post new clones
+        env:
+          SITE: https://qskingdom.com/
+          MAIN_EMAIL: ${{ secrets.QS_EMAIL }}
+          MAIN_PASSWORD: ${{ secrets.QS_PASSWORD }}
+          CARD: ${{ github.workspace }}/tools/clone-card.html
+        run: |
+          cd /tmp/qs
+          cat > clones.js <<'JS'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          const E = process.env;
+          const _log = console.log;
+          console.log = (...a) => { const t = a.join(' '); _log(t); _log((/failed|error|could not/i.test(t) ? '::warning title=Clone Watch::' : '::notice title=Clone Watch::') + t.replace(/\r?\n/g, ' ').slice(0, 900)); };
+          const day = t => t ? new Date(t).toLocaleString('en-US', { timeZone: 'America/New_York', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }) + ' NY' : '—';
+
+          async function shot(b, url) {
+            const ctx = await b.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'dark' });
+            const pg = await ctx.newPage();
+            try {
+              await pg.goto(url, { waitUntil: 'load', timeout: 30000 });
+              await pg.waitForTimeout(4000);
+              const buf = await pg.screenshot({ type: 'jpeg', quality: 70 });
+              return 'data:image/jpeg;base64,' + buf.toString('base64');
+            } catch (e) { return ''; } finally { await ctx.close(); }
+          }
+
+          async function card(b, c, clImg, ofImg) {
+            const ctx = await b.newContext({ viewport: { width: 1080, height: 1080 } });
+            const pg = await ctx.newPage();
+            await pg.setContent(fs.readFileSync(E.CARD, 'utf8'), { waitUntil: 'networkidle' });
+            await pg.evaluate(([c, cl, of, f, l]) => {
+              document.getElementById('host').textContent = c.host;
+              const put = (id, src, msg) => { const el = document.getElementById(id); el.innerHTML = src ? '<img src="' + src + '">' : '<div class="none">' + msg + '</div>'; };
+              put('cl', cl, 'The copy did not load when checked.');
+              put('of', of, 'qskingdom.com');
+              document.getElementById('first').textContent = f;
+              document.getElementById('last').textContent = l;
+              document.getElementById('hits').textContent = c.hits ? String(c.hits) : '—';
+            }, [c, clImg, ofImg, day(c.first), day(c.last)]);
+            await pg.evaluate(() => document.fonts.ready);
+            await pg.waitForTimeout(800);
+            const buf = await pg.screenshot({ type: 'jpeg', quality: 82 });
+            await ctx.close();
+            return 'data:image/jpeg;base64,' + buf.toString('base64');
+          }
+
+          (async () => {
+            if (!E.MAIN_EMAIL || !E.MAIN_PASSWORD) { console.log('No QS_EMAIL / QS_PASSWORD secrets saved, skipped.'); return; }
+            const b = await chromium.launch();
+            const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: 'dark', timezoneId: 'America/New_York' });
+            const pg = await ctx.newPage();
+            let bad = 0;
+            try {
+              await pg.goto(E.SITE + '?_=' + Date.now(), { waitUntil: 'load', timeout: 60000 });
+              await pg.waitForSelector('#qa-email', { timeout: 60000 });
+              await pg.fill('#qa-email', E.MAIN_EMAIL);
+              await pg.fill('#qa-pass', E.MAIN_PASSWORD);
+              await pg.click('[data-q=signin]');
+              await pg.waitForFunction(() => window.qsIsAdmin && window.qsIsAdmin() && window.qsCloneDue, null, { timeout: 60000 });
+              await pg.waitForTimeout(3000);
+              const due = await pg.evaluate(() => window.qsCloneDue().then(x => x, e => ({ error: e.message })));
+              if (due.error) { console.log('Could not read clones: ' + due.error); bad++; }
+              else if (!due.length) console.log('No new clones.');
+              else {
+                const ofImg = await shot(b, E.SITE);
+                for (const c of due.slice(0, 5)) {
+                  try {
+                    const clImg = await shot(b, 'https://' + c.host + (c.path && c.path.startsWith('/') ? c.path : '/'));
+                    const img = await card(b, c, clImg, ofImg);
+                    const text = '⚠️ Clone detected: ' + c.host + '\n\n' +
+                      'This website is an unofficial copy of QS Kingdom. It is not us.\n' +
+                      'Do not sign in, pay or share your details there.\n\n' +
+                      'The only official home is qskingdom.com and the QS Kingdom app.\n' +
+                      'First seen ' + day(c.first) + (c.hits ? ' · ' + c.hits + ' visits' : '') + '.\n' +
+                      'If you see a copy, report it to the admin.';
+                    const id = await pg.evaluate(([c, t, i]) => window.qsClonePost(c, t, i), [c.id, text, img]);
+                    console.log('Posted clone ' + c.host + ' (post ' + id + ')');
+                  } catch (e) { bad++; console.log('Failed to post ' + c.host + ': ' + e.message.split('\n')[0]); }
+                }
+              }
+            } catch (e) { bad++; console.log('Could not sign in (' + e.message.split('\n')[0] + ')'); }
+            await b.close();
+            process.exit(bad ? 1 : 0);
+          })();
+          JS
+          node clones.js
