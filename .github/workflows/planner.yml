@@ -26,7 +26,7 @@ jobs:
 
       - name: Post what is due
         env:
-          SITE: https://piseytha-pixel.github.io/quarterly-sequence/
+          SITE: https://qskingdom.com/
           MAIN_EMAIL: ${{ secrets.QS_EMAIL }}
           MAIN_PASSWORD: ${{ secrets.QS_PASSWORD }}
           RESEARCH_EMAIL: ${{ secrets.QS_RESEARCH_EMAIL }}
