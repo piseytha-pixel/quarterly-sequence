@@ -1,0 +1,3418 @@
+{
+ "from": "2025-11-03",
+ "to": "2026-11-03",
+ "cycles": {
+  "Week": {
+   "NQ": {
+    "events": 38,
+    "414141 | \u00b10m": {
+     "actual": 2.63,
+     "chance": 1.12,
+     "shuffled": 5.79,
+     "vs_shuffled": 0.45,
+     "z": -0.83
+    },
+    "414141 | \u00b11m": {
+     "actual": 7.89,
+     "chance": 3.3,
+     "shuffled": 7.89,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "414141 | \u00b15m": {
+     "actual": 26.32,
+     "chance": 11.99,
+     "shuffled": 17.37,
+     "vs_shuffled": 1.52,
+     "z": 1.46
+    },
+    "222 any | \u00b10m": {
+     "actual": 0.0,
+     "chance": 5.66,
+     "shuffled": 3.16,
+     "vs_shuffled": 0.0,
+     "z": -1.11
+    },
+    "222 any | \u00b11m": {
+     "actual": 2.63,
+     "chance": 7.91,
+     "shuffled": 6.32,
+     "vs_shuffled": 0.42,
+     "z": -0.93
+    },
+    "222 any | \u00b15m": {
+     "actual": 10.53,
+     "chance": 16.91,
+     "shuffled": 14.21,
+     "vs_shuffled": 0.74,
+     "z": -0.65
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 0.0,
+     "chance": 2.25,
+     "shuffled": 0.53,
+     "vs_shuffled": 0.0,
+     "z": -0.45
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 2.63,
+     "chance": 4.5,
+     "shuffled": 3.68,
+     "vs_shuffled": 0.71,
+     "z": -0.34
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.53,
+     "chance": 13.5,
+     "shuffled": 10.53,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.0,
+     "chance": 1.12,
+     "shuffled": 0.0,
+     "vs_shuffled": null,
+     "z": null
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 0.0,
+     "chance": 1.79,
+     "shuffled": 0.0,
+     "vs_shuffled": null,
+     "z": null
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 0.0,
+     "chance": 3.57,
+     "shuffled": 2.11,
+     "vs_shuffled": 0.0,
+     "z": -0.9
+    },
+    "333 any | \u00b10m": {
+     "actual": 10.53,
+     "chance": 5.76,
+     "shuffled": 4.74,
+     "vs_shuffled": 2.22,
+     "z": 1.68
+    },
+    "333 any | \u00b11m": {
+     "actual": 10.53,
+     "chance": 8.01,
+     "shuffled": 8.42,
+     "vs_shuffled": 1.25,
+     "z": 0.47
+    },
+    "333 any | \u00b15m": {
+     "actual": 18.42,
+     "chance": 16.99,
+     "shuffled": 16.84,
+     "vs_shuffled": 1.09,
+     "z": 0.26
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.63,
+     "chance": 2.24,
+     "shuffled": 1.05,
+     "vs_shuffled": 2.5,
+     "z": 0.95
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 2.63,
+     "chance": 4.49,
+     "shuffled": 4.74,
+     "vs_shuffled": 0.56,
+     "z": -0.61
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.53,
+     "chance": 13.46,
+     "shuffled": 12.63,
+     "vs_shuffled": 0.83,
+     "z": -0.39
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.63,
+     "chance": 1.33,
+     "shuffled": 1.58,
+     "vs_shuffled": 1.67,
+     "z": 0.52
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.63,
+     "chance": 1.78,
+     "shuffled": 2.11,
+     "vs_shuffled": 1.25,
+     "z": 0.23
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.63,
+     "chance": 3.56,
+     "shuffled": 3.16,
+     "vs_shuffled": 0.83,
+     "z": -0.19
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 5.26,
+     "chance": 3.37,
+     "shuffled": 6.84,
+     "vs_shuffled": 0.77,
+     "z": -0.39
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 13.16,
+     "chance": 10.03,
+     "shuffled": 12.63,
+     "vs_shuffled": 1.04,
+     "z": 0.1
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 47.37,
+     "chance": 36.7,
+     "shuffled": 37.89,
+     "vs_shuffled": 1.25,
+     "z": 1.2
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 2.63,
+     "chance": 3.3,
+     "shuffled": 4.21,
+     "vs_shuffled": 0.62,
+     "z": -0.48
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 5.26,
+     "chance": 9.96,
+     "shuffled": 10.0,
+     "vs_shuffled": 0.53,
+     "z": -0.97
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 36.84,
+     "chance": 36.63,
+     "shuffled": 37.89,
+     "vs_shuffled": 0.97,
+     "z": -0.13
+    }
+   },
+   "ES": {
+    "events": 38,
+    "414141 | \u00b10m": {
+     "actual": 7.89,
+     "chance": 1.12,
+     "shuffled": 4.21,
+     "vs_shuffled": 1.88,
+     "z": 1.13
+    },
+    "414141 | \u00b11m": {
+     "actual": 7.89,
+     "chance": 3.3,
+     "shuffled": 5.26,
+     "vs_shuffled": 1.5,
+     "z": 0.73
+    },
+    "414141 | \u00b15m": {
+     "actual": 18.42,
+     "chance": 11.98,
+     "shuffled": 12.11,
+     "vs_shuffled": 1.52,
+     "z": 1.19
+    },
+    "222 any | \u00b10m": {
+     "actual": 2.63,
+     "chance": 5.7,
+     "shuffled": 5.79,
+     "vs_shuffled": 0.45,
+     "z": -0.83
+    },
+    "222 any | \u00b11m": {
+     "actual": 5.26,
+     "chance": 7.94,
+     "shuffled": 8.95,
+     "vs_shuffled": 0.59,
+     "z": -0.8
+    },
+    "222 any | \u00b15m": {
+     "actual": 7.89,
+     "chance": 16.93,
+     "shuffled": 18.95,
+     "vs_shuffled": 0.42,
+     "z": -1.74
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.63,
+     "chance": 2.25,
+     "shuffled": 2.11,
+     "vs_shuffled": 1.25,
+     "z": 0.23
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 5.26,
+     "chance": 4.49,
+     "shuffled": 5.26,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 7.89,
+     "chance": 13.48,
+     "shuffled": 16.32,
+     "vs_shuffled": 0.48,
+     "z": -1.4
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.0,
+     "chance": 1.12,
+     "shuffled": 2.11,
+     "vs_shuffled": 0.0,
+     "z": -0.9
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 0.0,
+     "chance": 1.8,
+     "shuffled": 4.21,
+     "vs_shuffled": 0.0,
+     "z": -1.29
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 0.0,
+     "chance": 3.59,
+     "shuffled": 7.37,
+     "vs_shuffled": 0.0,
+     "z": -1.74
+    },
+    "333 any | \u00b10m": {
+     "actual": 13.16,
+     "chance": 5.64,
+     "shuffled": 4.74,
+     "vs_shuffled": 2.78,
+     "z": 2.44
+    },
+    "333 any | \u00b11m": {
+     "actual": 15.79,
+     "chance": 7.89,
+     "shuffled": 6.84,
+     "vs_shuffled": 2.31,
+     "z": 2.18
+    },
+    "333 any | \u00b15m": {
+     "actual": 31.58,
+     "chance": 16.89,
+     "shuffled": 14.74,
+     "vs_shuffled": 2.14,
+     "z": 2.93
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 5.26,
+     "chance": 2.25,
+     "shuffled": 1.05,
+     "vs_shuffled": 5.0,
+     "z": 2.54
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 7.89,
+     "chance": 4.5,
+     "shuffled": 2.63,
+     "vs_shuffled": 3.0,
+     "z": 2.03
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 18.42,
+     "chance": 13.49,
+     "shuffled": 9.47,
+     "vs_shuffled": 1.94,
+     "z": 1.88
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.0,
+     "chance": 1.35,
+     "shuffled": 1.05,
+     "vs_shuffled": 0.0,
+     "z": -0.64
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 0.0,
+     "chance": 1.8,
+     "shuffled": 1.58,
+     "vs_shuffled": 0.0,
+     "z": -0.78
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 5.26,
+     "chance": 3.6,
+     "shuffled": 6.32,
+     "vs_shuffled": 0.83,
+     "z": -0.27
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 10.53,
+     "chance": 3.37,
+     "shuffled": 6.32,
+     "vs_shuffled": 1.67,
+     "z": 1.07
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 21.05,
+     "chance": 10.04,
+     "shuffled": 10.0,
+     "vs_shuffled": 2.11,
+     "z": 2.27
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 42.11,
+     "chance": 36.7,
+     "shuffled": 34.21,
+     "vs_shuffled": 1.23,
+     "z": 1.03
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 2.63,
+     "chance": 3.3,
+     "shuffled": 2.11,
+     "vs_shuffled": 1.25,
+     "z": 0.23
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 13.16,
+     "chance": 9.97,
+     "shuffled": 8.95,
+     "vs_shuffled": 1.47,
+     "z": 0.91
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 39.47,
+     "chance": 36.63,
+     "shuffled": 37.89,
+     "vs_shuffled": 1.04,
+     "z": 0.2
+    }
+   },
+   "YM": {
+    "events": 44,
+    "414141 | \u00b10m": {
+     "actual": 4.55,
+     "chance": 1.12,
+     "shuffled": 1.82,
+     "vs_shuffled": 2.5,
+     "z": 1.35
+    },
+    "414141 | \u00b11m": {
+     "actual": 4.55,
+     "chance": 3.3,
+     "shuffled": 2.73,
+     "vs_shuffled": 1.67,
+     "z": 0.74
+    },
+    "414141 | \u00b15m": {
+     "actual": 6.82,
+     "chance": 11.98,
+     "shuffled": 12.73,
+     "vs_shuffled": 0.54,
+     "z": -1.18
+    },
+    "222 any | \u00b10m": {
+     "actual": 13.64,
+     "chance": 5.59,
+     "shuffled": 4.55,
+     "vs_shuffled": 3.0,
+     "z": 2.89
+    },
+    "222 any | \u00b11m": {
+     "actual": 18.18,
+     "chance": 7.83,
+     "shuffled": 5.91,
+     "vs_shuffled": 3.08,
+     "z": 3.45
+    },
+    "222 any | \u00b15m": {
+     "actual": 27.27,
+     "chance": 16.83,
+     "shuffled": 14.55,
+     "vs_shuffled": 1.88,
+     "z": 2.39
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 6.82,
+     "chance": 2.25,
+     "shuffled": 2.73,
+     "vs_shuffled": 2.5,
+     "z": 1.67
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 11.36,
+     "chance": 4.5,
+     "shuffled": 3.64,
+     "vs_shuffled": 3.12,
+     "z": 2.74
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 25.0,
+     "chance": 13.49,
+     "shuffled": 13.18,
+     "vs_shuffled": 1.9,
+     "z": 2.32
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 4.55,
+     "chance": 1.11,
+     "shuffled": 1.82,
+     "vs_shuffled": 2.5,
+     "z": 1.35
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 4.55,
+     "chance": 1.78,
+     "shuffled": 3.18,
+     "vs_shuffled": 1.43,
+     "z": 0.52
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.55,
+     "chance": 3.55,
+     "shuffled": 4.09,
+     "vs_shuffled": 1.11,
+     "z": 0.15
+    },
+    "333 any | \u00b10m": {
+     "actual": 25.0,
+     "chance": 5.8,
+     "shuffled": 4.55,
+     "vs_shuffled": 5.5,
+     "z": 6.51
+    },
+    "333 any | \u00b11m": {
+     "actual": 25.0,
+     "chance": 8.05,
+     "shuffled": 6.82,
+     "vs_shuffled": 3.67,
+     "z": 4.78
+    },
+    "333 any | \u00b15m": {
+     "actual": 27.27,
+     "chance": 17.03,
+     "shuffled": 14.09,
+     "vs_shuffled": 1.94,
+     "z": 2.51
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 9.09,
+     "chance": 2.25,
+     "shuffled": 1.36,
+     "vs_shuffled": 6.67,
+     "z": 4.42
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 9.09,
+     "chance": 4.49,
+     "shuffled": 3.18,
+     "vs_shuffled": 2.86,
+     "z": 2.23
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 15.91,
+     "chance": 13.48,
+     "shuffled": 11.82,
+     "vs_shuffled": 1.35,
+     "z": 0.84
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 4.55,
+     "chance": 1.34,
+     "shuffled": 1.82,
+     "vs_shuffled": 2.5,
+     "z": 1.35
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 4.55,
+     "chance": 1.79,
+     "shuffled": 2.27,
+     "vs_shuffled": 2.0,
+     "z": 1.01
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.55,
+     "chance": 3.59,
+     "shuffled": 3.18,
+     "vs_shuffled": 1.43,
+     "z": 0.52
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 13.64,
+     "chance": 3.37,
+     "shuffled": 3.18,
+     "vs_shuffled": 4.29,
+     "z": 3.95
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 25.0,
+     "chance": 10.04,
+     "shuffled": 8.18,
+     "vs_shuffled": 3.06,
+     "z": 4.07
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 47.73,
+     "chance": 36.7,
+     "shuffled": 36.36,
+     "vs_shuffled": 1.31,
+     "z": 1.57
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 4.55,
+     "chance": 3.3,
+     "shuffled": 4.09,
+     "vs_shuffled": 1.11,
+     "z": 0.15
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 11.36,
+     "chance": 9.96,
+     "shuffled": 10.45,
+     "vs_shuffled": 1.09,
+     "z": 0.2
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 27.27,
+     "chance": 36.63,
+     "shuffled": 37.27,
+     "vs_shuffled": 0.73,
+     "z": -1.37
+    }
+   },
+   "RTY": {
+    "events": 32,
+    "414141 | \u00b10m": {
+     "actual": 9.38,
+     "chance": 1.12,
+     "shuffled": 6.88,
+     "vs_shuffled": 1.36,
+     "z": 0.56
+    },
+    "414141 | \u00b11m": {
+     "actual": 12.5,
+     "chance": 3.3,
+     "shuffled": 8.75,
+     "vs_shuffled": 1.43,
+     "z": 0.75
+    },
+    "414141 | \u00b15m": {
+     "actual": 21.88,
+     "chance": 11.99,
+     "shuffled": 19.38,
+     "vs_shuffled": 1.13,
+     "z": 0.36
+    },
+    "222 any | \u00b10m": {
+     "actual": 9.38,
+     "chance": 5.78,
+     "shuffled": 1.25,
+     "vs_shuffled": 7.5,
+     "z": 4.14
+    },
+    "222 any | \u00b11m": {
+     "actual": 9.38,
+     "chance": 8.03,
+     "shuffled": 2.5,
+     "vs_shuffled": 3.75,
+     "z": 2.49
+    },
+    "222 any | \u00b15m": {
+     "actual": 15.62,
+     "chance": 17.02,
+     "shuffled": 10.0,
+     "vs_shuffled": 1.56,
+     "z": 1.06
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 6.25,
+     "chance": 2.25,
+     "shuffled": 0.62,
+     "vs_shuffled": 10.0,
+     "z": 4.04
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 6.25,
+     "chance": 4.5,
+     "shuffled": 1.88,
+     "vs_shuffled": 3.33,
+     "z": 1.82
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 12.5,
+     "chance": 13.49,
+     "shuffled": 8.12,
+     "vs_shuffled": 1.54,
+     "z": 0.91
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.0,
+     "chance": 1.12,
+     "shuffled": 0.0,
+     "vs_shuffled": null,
+     "z": null
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 0.0,
+     "chance": 1.79,
+     "shuffled": 0.0,
+     "vs_shuffled": null,
+     "z": null
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 0.0,
+     "chance": 3.58,
+     "shuffled": 1.25,
+     "vs_shuffled": 0.0,
+     "z": -0.64
+    },
+    "333 any | \u00b10m": {
+     "actual": 12.5,
+     "chance": 5.84,
+     "shuffled": 4.38,
+     "vs_shuffled": 2.86,
+     "z": 2.25
+    },
+    "333 any | \u00b11m": {
+     "actual": 15.62,
+     "chance": 8.08,
+     "shuffled": 5.0,
+     "vs_shuffled": 3.12,
+     "z": 2.76
+    },
+    "333 any | \u00b15m": {
+     "actual": 18.75,
+     "chance": 17.06,
+     "shuffled": 17.5,
+     "vs_shuffled": 1.07,
+     "z": 0.19
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 6.25,
+     "chance": 2.24,
+     "shuffled": 1.88,
+     "vs_shuffled": 3.33,
+     "z": 1.82
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 9.38,
+     "chance": 4.49,
+     "shuffled": 3.12,
+     "vs_shuffled": 3.0,
+     "z": 2.03
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 18.75,
+     "chance": 13.47,
+     "shuffled": 15.0,
+     "vs_shuffled": 1.25,
+     "z": 0.59
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 3.12,
+     "chance": 1.34,
+     "shuffled": 0.62,
+     "vs_shuffled": 5.0,
+     "z": 1.79
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 3.12,
+     "chance": 1.78,
+     "shuffled": 0.62,
+     "vs_shuffled": 5.0,
+     "z": 1.79
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.12,
+     "chance": 3.57,
+     "shuffled": 3.12,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 15.62,
+     "chance": 3.37,
+     "shuffled": 9.38,
+     "vs_shuffled": 1.67,
+     "z": 1.21
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 28.12,
+     "chance": 10.04,
+     "shuffled": 12.5,
+     "vs_shuffled": 2.25,
+     "z": 2.67
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 50.0,
+     "chance": 36.71,
+     "shuffled": 41.88,
+     "vs_shuffled": 1.19,
+     "z": 0.93
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.12,
+     "chance": 3.3,
+     "shuffled": 2.5,
+     "vs_shuffled": 1.25,
+     "z": 0.23
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 12.5,
+     "chance": 9.96,
+     "shuffled": 6.88,
+     "vs_shuffled": 1.82,
+     "z": 1.26
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 34.38,
+     "chance": 36.63,
+     "shuffled": 36.25,
+     "vs_shuffled": 0.95,
+     "z": -0.22
+    }
+   }
+  },
+  "Day": {
+   "NQ": {
+    "events": 246,
+    "414141 | \u00b10m": {
+     "actual": 4.88,
+     "chance": 1.11,
+     "shuffled": 4.31,
+     "vs_shuffled": 1.13,
+     "z": 0.44
+    },
+    "414141 | \u00b11m": {
+     "actual": 7.72,
+     "chance": 3.28,
+     "shuffled": 6.1,
+     "vs_shuffled": 1.27,
+     "z": 1.07
+    },
+    "414141 | \u00b15m": {
+     "actual": 18.7,
+     "chance": 11.96,
+     "shuffled": 13.66,
+     "vs_shuffled": 1.37,
+     "z": 2.3
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.69,
+     "chance": 5.75,
+     "shuffled": 4.23,
+     "vs_shuffled": 1.35,
+     "z": 1.14
+    },
+    "222 any | \u00b11m": {
+     "actual": 7.32,
+     "chance": 7.99,
+     "shuffled": 7.07,
+     "vs_shuffled": 1.03,
+     "z": 0.15
+    },
+    "222 any | \u00b15m": {
+     "actual": 16.26,
+     "chance": 16.95,
+     "shuffled": 15.77,
+     "vs_shuffled": 1.03,
+     "z": 0.21
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 1.22,
+     "chance": 2.24,
+     "shuffled": 1.63,
+     "vs_shuffled": 0.75,
+     "z": -0.5
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 3.66,
+     "chance": 4.48,
+     "shuffled": 4.31,
+     "vs_shuffled": 0.85,
+     "z": -0.5
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 13.01,
+     "chance": 13.44,
+     "shuffled": 13.17,
+     "vs_shuffled": 0.99,
+     "z": -0.08
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.03,
+     "chance": 1.12,
+     "shuffled": 1.06,
+     "vs_shuffled": 1.92,
+     "z": 1.5
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.44,
+     "chance": 1.79,
+     "shuffled": 2.2,
+     "vs_shuffled": 1.11,
+     "z": 0.26
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.07,
+     "chance": 3.56,
+     "shuffled": 4.72,
+     "vs_shuffled": 0.86,
+     "z": -0.48
+    },
+    "333 any | \u00b10m": {
+     "actual": 13.82,
+     "chance": 5.89,
+     "shuffled": 6.02,
+     "vs_shuffled": 2.3,
+     "z": 5.15
+    },
+    "333 any | \u00b11m": {
+     "actual": 14.23,
+     "chance": 8.15,
+     "shuffled": 8.7,
+     "vs_shuffled": 1.64,
+     "z": 3.08
+    },
+    "333 any | \u00b15m": {
+     "actual": 23.58,
+     "chance": 17.17,
+     "shuffled": 17.32,
+     "vs_shuffled": 1.36,
+     "z": 2.59
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.25,
+     "chance": 2.25,
+     "shuffled": 2.11,
+     "vs_shuffled": 1.54,
+     "z": 1.24
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 3.66,
+     "chance": 4.51,
+     "shuffled": 5.12,
+     "vs_shuffled": 0.71,
+     "z": -1.04
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 12.6,
+     "chance": 13.53,
+     "shuffled": 14.23,
+     "vs_shuffled": 0.89,
+     "z": -0.73
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.85,
+     "chance": 1.36,
+     "shuffled": 2.44,
+     "vs_shuffled": 1.17,
+     "z": 0.41
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 3.25,
+     "chance": 1.82,
+     "shuffled": 3.25,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 7.72,
+     "chance": 3.64,
+     "shuffled": 5.45,
+     "vs_shuffled": 1.42,
+     "z": 1.57
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 8.54,
+     "chance": 3.37,
+     "shuffled": 6.34,
+     "vs_shuffled": 1.35,
+     "z": 1.41
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 14.23,
+     "chance": 10.04,
+     "shuffled": 12.76,
+     "vs_shuffled": 1.11,
+     "z": 0.69
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 43.5,
+     "chance": 36.7,
+     "shuffled": 38.94,
+     "vs_shuffled": 1.12,
+     "z": 1.46
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 2.03,
+     "chance": 3.3,
+     "shuffled": 3.25,
+     "vs_shuffled": 0.62,
+     "z": -1.08
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 8.94,
+     "chance": 9.96,
+     "shuffled": 10.49,
+     "vs_shuffled": 0.85,
+     "z": -0.79
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 36.18,
+     "chance": 36.63,
+     "shuffled": 36.59,
+     "vs_shuffled": 0.99,
+     "z": -0.13
+    }
+   },
+   "ES": {
+    "events": 258,
+    "414141 | \u00b10m": {
+     "actual": 5.04,
+     "chance": 1.11,
+     "shuffled": 3.95,
+     "vs_shuffled": 1.27,
+     "z": 0.89
+    },
+    "414141 | \u00b11m": {
+     "actual": 7.36,
+     "chance": 3.28,
+     "shuffled": 5.89,
+     "vs_shuffled": 1.25,
+     "z": 1.0
+    },
+    "414141 | \u00b15m": {
+     "actual": 18.6,
+     "chance": 11.96,
+     "shuffled": 14.19,
+     "vs_shuffled": 1.31,
+     "z": 2.03
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.04,
+     "chance": 5.66,
+     "shuffled": 5.35,
+     "vs_shuffled": 0.94,
+     "z": -0.22
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.59,
+     "chance": 7.9,
+     "shuffled": 7.98,
+     "vs_shuffled": 0.83,
+     "z": -0.83
+    },
+    "222 any | \u00b15m": {
+     "actual": 11.63,
+     "chance": 16.86,
+     "shuffled": 17.29,
+     "vs_shuffled": 0.67,
+     "z": -2.4
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 4.26,
+     "chance": 2.24,
+     "shuffled": 2.64,
+     "vs_shuffled": 1.62,
+     "z": 1.63
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 6.2,
+     "chance": 4.48,
+     "shuffled": 5.27,
+     "vs_shuffled": 1.18,
+     "z": 0.67
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.85,
+     "chance": 13.44,
+     "shuffled": 14.73,
+     "vs_shuffled": 0.74,
+     "z": -1.76
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.78,
+     "chance": 1.12,
+     "shuffled": 1.09,
+     "vs_shuffled": 0.71,
+     "z": -0.48
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.55,
+     "chance": 1.79,
+     "shuffled": 2.71,
+     "vs_shuffled": 0.57,
+     "z": -1.15
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 1.94,
+     "chance": 3.57,
+     "shuffled": 4.5,
+     "vs_shuffled": 0.43,
+     "z": -1.98
+    },
+    "333 any | \u00b10m": {
+     "actual": 12.79,
+     "chance": 5.77,
+     "shuffled": 5.35,
+     "vs_shuffled": 2.39,
+     "z": 5.31
+    },
+    "333 any | \u00b11m": {
+     "actual": 14.34,
+     "chance": 8.03,
+     "shuffled": 7.44,
+     "vs_shuffled": 1.93,
+     "z": 4.22
+    },
+    "333 any | \u00b15m": {
+     "actual": 25.58,
+     "chance": 17.06,
+     "shuffled": 16.28,
+     "vs_shuffled": 1.57,
+     "z": 4.05
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 5.43,
+     "chance": 2.26,
+     "shuffled": 1.86,
+     "vs_shuffled": 2.92,
+     "z": 4.24
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 7.36,
+     "chance": 4.52,
+     "shuffled": 4.11,
+     "vs_shuffled": 1.79,
+     "z": 2.63
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 16.67,
+     "chance": 13.55,
+     "shuffled": 12.71,
+     "vs_shuffled": 1.31,
+     "z": 1.91
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 3.49,
+     "chance": 1.37,
+     "shuffled": 2.09,
+     "vs_shuffled": 1.67,
+     "z": 1.57
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 3.49,
+     "chance": 1.83,
+     "shuffled": 2.71,
+     "vs_shuffled": 1.29,
+     "z": 0.77
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 6.2,
+     "chance": 3.65,
+     "shuffled": 5.66,
+     "vs_shuffled": 1.1,
+     "z": 0.38
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 9.69,
+     "chance": 3.37,
+     "shuffled": 6.67,
+     "vs_shuffled": 1.45,
+     "z": 1.95
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 19.38,
+     "chance": 10.04,
+     "shuffled": 12.48,
+     "vs_shuffled": 1.55,
+     "z": 3.35
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 44.57,
+     "chance": 36.71,
+     "shuffled": 38.84,
+     "vs_shuffled": 1.15,
+     "z": 1.89
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.1,
+     "chance": 3.3,
+     "shuffled": 2.79,
+     "vs_shuffled": 1.11,
+     "z": 0.3
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 10.47,
+     "chance": 9.97,
+     "shuffled": 9.69,
+     "vs_shuffled": 1.08,
+     "z": 0.42
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 33.72,
+     "chance": 36.63,
+     "shuffled": 35.19,
+     "vs_shuffled": 0.96,
+     "z": -0.5
+    }
+   },
+   "YM": {
+    "events": 274,
+    "414141 | \u00b10m": {
+     "actual": 4.38,
+     "chance": 1.11,
+     "shuffled": 3.14,
+     "vs_shuffled": 1.4,
+     "z": 1.18
+    },
+    "414141 | \u00b11m": {
+     "actual": 5.84,
+     "chance": 3.28,
+     "shuffled": 5.47,
+     "vs_shuffled": 1.07,
+     "z": 0.27
+    },
+    "414141 | \u00b15m": {
+     "actual": 13.87,
+     "chance": 11.96,
+     "shuffled": 14.01,
+     "vs_shuffled": 0.99,
+     "z": -0.07
+    },
+    "222 any | \u00b10m": {
+     "actual": 9.49,
+     "chance": 5.64,
+     "shuffled": 4.74,
+     "vs_shuffled": 2.0,
+     "z": 3.69
+    },
+    "222 any | \u00b11m": {
+     "actual": 13.14,
+     "chance": 7.88,
+     "shuffled": 6.06,
+     "vs_shuffled": 2.17,
+     "z": 4.91
+    },
+    "222 any | \u00b15m": {
+     "actual": 23.72,
+     "chance": 16.85,
+     "shuffled": 14.82,
+     "vs_shuffled": 1.6,
+     "z": 4.15
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 6.2,
+     "chance": 2.24,
+     "shuffled": 2.63,
+     "vs_shuffled": 2.36,
+     "z": 3.7
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 10.95,
+     "chance": 4.48,
+     "shuffled": 3.65,
+     "vs_shuffled": 3.0,
+     "z": 6.44
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 22.63,
+     "chance": 13.45,
+     "shuffled": 12.99,
+     "vs_shuffled": 1.74,
+     "z": 4.74
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.92,
+     "chance": 1.11,
+     "shuffled": 1.09,
+     "vs_shuffled": 2.67,
+     "z": 2.9
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 4.74,
+     "chance": 1.78,
+     "shuffled": 2.41,
+     "vs_shuffled": 1.97,
+     "z": 2.52
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 5.47,
+     "chance": 3.55,
+     "shuffled": 3.65,
+     "vs_shuffled": 1.5,
+     "z": 1.61
+    },
+    "333 any | \u00b10m": {
+     "actual": 13.87,
+     "chance": 5.78,
+     "shuffled": 4.89,
+     "vs_shuffled": 2.84,
+     "z": 6.89
+    },
+    "333 any | \u00b11m": {
+     "actual": 15.33,
+     "chance": 8.04,
+     "shuffled": 6.79,
+     "vs_shuffled": 2.26,
+     "z": 5.62
+    },
+    "333 any | \u00b15m": {
+     "actual": 23.72,
+     "chance": 17.06,
+     "shuffled": 15.55,
+     "vs_shuffled": 1.53,
+     "z": 3.73
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 4.74,
+     "chance": 2.25,
+     "shuffled": 2.26,
+     "vs_shuffled": 2.1,
+     "z": 2.76
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 6.93,
+     "chance": 4.51,
+     "shuffled": 4.31,
+     "vs_shuffled": 1.61,
+     "z": 2.14
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 14.96,
+     "chance": 13.53,
+     "shuffled": 12.34,
+     "vs_shuffled": 1.21,
+     "z": 1.32
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 4.01,
+     "chance": 1.36,
+     "shuffled": 1.61,
+     "vs_shuffled": 2.5,
+     "z": 3.17
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 4.01,
+     "chance": 1.82,
+     "shuffled": 1.82,
+     "vs_shuffled": 2.2,
+     "z": 2.71
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 6.2,
+     "chance": 3.64,
+     "shuffled": 4.67,
+     "vs_shuffled": 1.33,
+     "z": 1.2
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 11.31,
+     "chance": 3.37,
+     "shuffled": 5.62,
+     "vs_shuffled": 2.01,
+     "z": 4.09
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 20.8,
+     "chance": 10.04,
+     "shuffled": 12.12,
+     "vs_shuffled": 1.72,
+     "z": 4.41
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 49.64,
+     "chance": 36.7,
+     "shuffled": 37.45,
+     "vs_shuffled": 1.33,
+     "z": 4.17
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 4.01,
+     "chance": 3.3,
+     "shuffled": 3.07,
+     "vs_shuffled": 1.31,
+     "z": 0.91
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 9.85,
+     "chance": 9.96,
+     "shuffled": 10.88,
+     "vs_shuffled": 0.91,
+     "z": -0.54
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 27.74,
+     "chance": 36.64,
+     "shuffled": 37.74,
+     "vs_shuffled": 0.74,
+     "z": -3.41
+    }
+   },
+   "RTY": {
+    "events": 228,
+    "414141 | \u00b10m": {
+     "actual": 3.95,
+     "chance": 1.11,
+     "shuffled": 3.42,
+     "vs_shuffled": 1.15,
+     "z": 0.44
+    },
+    "414141 | \u00b11m": {
+     "actual": 6.14,
+     "chance": 3.28,
+     "shuffled": 5.26,
+     "vs_shuffled": 1.17,
+     "z": 0.59
+    },
+    "414141 | \u00b15m": {
+     "actual": 14.91,
+     "chance": 11.96,
+     "shuffled": 14.39,
+     "vs_shuffled": 1.04,
+     "z": 0.23
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.26,
+     "chance": 5.8,
+     "shuffled": 4.74,
+     "vs_shuffled": 1.11,
+     "z": 0.37
+    },
+    "222 any | \u00b11m": {
+     "actual": 5.7,
+     "chance": 8.04,
+     "shuffled": 6.93,
+     "vs_shuffled": 0.82,
+     "z": -0.73
+    },
+    "222 any | \u00b15m": {
+     "actual": 14.91,
+     "chance": 16.99,
+     "shuffled": 14.21,
+     "vs_shuffled": 1.05,
+     "z": 0.3
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.07,
+     "chance": 2.24,
+     "shuffled": 2.19,
+     "vs_shuffled": 1.4,
+     "z": 0.9
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.82,
+     "chance": 4.48,
+     "shuffled": 4.47,
+     "vs_shuffled": 1.08,
+     "z": 0.26
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 13.6,
+     "chance": 13.43,
+     "shuffled": 12.28,
+     "vs_shuffled": 1.11,
+     "z": 0.61
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.32,
+     "chance": 1.11,
+     "shuffled": 0.79,
+     "vs_shuffled": 1.67,
+     "z": 0.9
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.19,
+     "chance": 1.78,
+     "shuffled": 2.28,
+     "vs_shuffled": 0.96,
+     "z": -0.09
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.51,
+     "chance": 3.55,
+     "shuffled": 3.51,
+     "vs_shuffled": 1.0,
+     "z": 0.0
+    },
+    "333 any | \u00b10m": {
+     "actual": 14.47,
+     "chance": 5.74,
+     "shuffled": 5.26,
+     "vs_shuffled": 2.75,
+     "z": 6.23
+    },
+    "333 any | \u00b11m": {
+     "actual": 17.98,
+     "chance": 8.0,
+     "shuffled": 7.02,
+     "vs_shuffled": 2.56,
+     "z": 6.48
+    },
+    "333 any | \u00b15m": {
+     "actual": 23.68,
+     "chance": 17.03,
+     "shuffled": 18.42,
+     "vs_shuffled": 1.29,
+     "z": 2.05
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 5.26,
+     "chance": 2.26,
+     "shuffled": 2.02,
+     "vs_shuffled": 2.61,
+     "z": 3.49
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 7.89,
+     "chance": 4.52,
+     "shuffled": 4.21,
+     "vs_shuffled": 1.88,
+     "z": 2.77
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 16.67,
+     "chance": 13.55,
+     "shuffled": 15.44,
+     "vs_shuffled": 1.08,
+     "z": 0.51
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 4.39,
+     "chance": 1.37,
+     "shuffled": 2.28,
+     "vs_shuffled": 1.92,
+     "z": 2.13
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 5.7,
+     "chance": 1.82,
+     "shuffled": 2.89,
+     "vs_shuffled": 1.97,
+     "z": 2.53
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 6.14,
+     "chance": 3.65,
+     "shuffled": 6.67,
+     "vs_shuffled": 0.92,
+     "z": -0.32
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 10.09,
+     "chance": 3.37,
+     "shuffled": 6.58,
+     "vs_shuffled": 1.53,
+     "z": 2.14
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 17.11,
+     "chance": 10.04,
+     "shuffled": 12.02,
+     "vs_shuffled": 1.42,
+     "z": 2.36
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 42.98,
+     "chance": 36.71,
+     "shuffled": 39.12,
+     "vs_shuffled": 1.1,
+     "z": 1.19
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 5.26,
+     "chance": 3.3,
+     "shuffled": 2.63,
+     "vs_shuffled": 2.0,
+     "z": 2.48
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 11.4,
+     "chance": 9.96,
+     "shuffled": 9.65,
+     "vs_shuffled": 1.18,
+     "z": 0.9
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 34.65,
+     "chance": 36.63,
+     "shuffled": 34.39,
+     "vs_shuffled": 1.01,
+     "z": 0.08
+    }
+   }
+  },
+  "Session": {
+   "NQ": {
+    "events": 938,
+    "414141 | \u00b10m": {
+     "actual": 5.86,
+     "chance": 1.12,
+     "shuffled": 4.48,
+     "vs_shuffled": 1.31,
+     "z": 2.05
+    },
+    "414141 | \u00b11m": {
+     "actual": 9.7,
+     "chance": 3.3,
+     "shuffled": 8.96,
+     "vs_shuffled": 1.08,
+     "z": 0.8
+    },
+    "414141 | \u00b15m": {
+     "actual": 22.17,
+     "chance": 11.99,
+     "shuffled": 20.0,
+     "vs_shuffled": 1.11,
+     "z": 1.67
+    },
+    "222 any | \u00b10m": {
+     "actual": 4.9,
+     "chance": 5.82,
+     "shuffled": 3.62,
+     "vs_shuffled": 1.35,
+     "z": 2.1
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.72,
+     "chance": 8.07,
+     "shuffled": 5.74,
+     "vs_shuffled": 1.17,
+     "z": 1.29
+    },
+    "222 any | \u00b15m": {
+     "actual": 15.46,
+     "chance": 17.04,
+     "shuffled": 13.69,
+     "vs_shuffled": 1.13,
+     "z": 1.58
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.35,
+     "chance": 2.24,
+     "shuffled": 1.75,
+     "vs_shuffled": 1.34,
+     "z": 1.4
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.37,
+     "chance": 4.49,
+     "shuffled": 3.88,
+     "vs_shuffled": 1.13,
+     "z": 0.78
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 12.26,
+     "chance": 13.46,
+     "shuffled": 11.68,
+     "vs_shuffled": 1.05,
+     "z": 0.55
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.39,
+     "chance": 1.11,
+     "shuffled": 0.68,
+     "vs_shuffled": 2.03,
+     "z": 2.62
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.6,
+     "chance": 1.78,
+     "shuffled": 1.09,
+     "vs_shuffled": 1.47,
+     "z": 1.51
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.2,
+     "chance": 3.55,
+     "shuffled": 2.52,
+     "vs_shuffled": 1.27,
+     "z": 1.33
+    },
+    "333 any | \u00b10m": {
+     "actual": 8.32,
+     "chance": 5.95,
+     "shuffled": 4.73,
+     "vs_shuffled": 1.76,
+     "z": 5.17
+    },
+    "333 any | \u00b11m": {
+     "actual": 10.45,
+     "chance": 8.2,
+     "shuffled": 6.89,
+     "vs_shuffled": 1.52,
+     "z": 4.31
+    },
+    "333 any | \u00b15m": {
+     "actual": 17.48,
+     "chance": 17.2,
+     "shuffled": 14.73,
+     "vs_shuffled": 1.19,
+     "z": 2.38
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.3,
+     "chance": 2.25,
+     "shuffled": 1.77,
+     "vs_shuffled": 1.87,
+     "z": 3.57
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 5.76,
+     "chance": 4.5,
+     "shuffled": 3.77,
+     "vs_shuffled": 1.53,
+     "z": 3.19
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 13.22,
+     "chance": 13.5,
+     "shuffled": 12.03,
+     "vs_shuffled": 1.1,
+     "z": 1.12
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.92,
+     "chance": 1.33,
+     "shuffled": 1.26,
+     "vs_shuffled": 1.53,
+     "z": 1.82
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.35,
+     "chance": 1.77,
+     "shuffled": 1.98,
+     "vs_shuffled": 1.18,
+     "z": 0.8
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.37,
+     "chance": 3.55,
+     "shuffled": 3.69,
+     "vs_shuffled": 1.18,
+     "z": 1.11
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 9.81,
+     "chance": 3.37,
+     "shuffled": 6.23,
+     "vs_shuffled": 1.58,
+     "z": 4.54
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 18.66,
+     "chance": 10.04,
+     "shuffled": 14.56,
+     "vs_shuffled": 1.28,
+     "z": 3.55
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 46.7,
+     "chance": 36.71,
+     "shuffled": 41.81,
+     "vs_shuffled": 1.12,
+     "z": 3.03
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 2.35,
+     "chance": 3.3,
+     "shuffled": 2.75,
+     "vs_shuffled": 0.85,
+     "z": -0.76
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 7.57,
+     "chance": 9.96,
+     "shuffled": 9.45,
+     "vs_shuffled": 0.8,
+     "z": -1.96
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 30.6,
+     "chance": 36.63,
+     "shuffled": 34.22,
+     "vs_shuffled": 0.89,
+     "z": -2.34
+    }
+   },
+   "ES": {
+    "events": 980,
+    "414141 | \u00b10m": {
+     "actual": 6.73,
+     "chance": 1.12,
+     "shuffled": 4.43,
+     "vs_shuffled": 1.52,
+     "z": 3.51
+    },
+    "414141 | \u00b11m": {
+     "actual": 10.51,
+     "chance": 3.3,
+     "shuffled": 9.33,
+     "vs_shuffled": 1.13,
+     "z": 1.27
+    },
+    "414141 | \u00b15m": {
+     "actual": 21.12,
+     "chance": 11.99,
+     "shuffled": 20.59,
+     "vs_shuffled": 1.03,
+     "z": 0.41
+    },
+    "222 any | \u00b10m": {
+     "actual": 4.9,
+     "chance": 5.74,
+     "shuffled": 4.18,
+     "vs_shuffled": 1.17,
+     "z": 1.12
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.94,
+     "chance": 7.99,
+     "shuffled": 6.27,
+     "vs_shuffled": 1.11,
+     "z": 0.87
+    },
+    "222 any | \u00b15m": {
+     "actual": 12.76,
+     "chance": 16.96,
+     "shuffled": 13.67,
+     "vs_shuffled": 0.93,
+     "z": -0.84
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.86,
+     "chance": 2.25,
+     "shuffled": 1.94,
+     "vs_shuffled": 1.47,
+     "z": 2.09
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 5.0,
+     "chance": 4.49,
+     "shuffled": 3.96,
+     "vs_shuffled": 1.26,
+     "z": 1.67
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.12,
+     "chance": 13.46,
+     "shuffled": 11.41,
+     "vs_shuffled": 0.97,
+     "z": -0.28
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.12,
+     "chance": 1.11,
+     "shuffled": 0.8,
+     "vs_shuffled": 1.41,
+     "z": 1.15
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.63,
+     "chance": 1.78,
+     "shuffled": 1.33,
+     "vs_shuffled": 1.23,
+     "z": 0.84
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.35,
+     "chance": 3.55,
+     "shuffled": 2.63,
+     "vs_shuffled": 0.89,
+     "z": -0.56
+    },
+    "333 any | \u00b10m": {
+     "actual": 7.65,
+     "chance": 5.83,
+     "shuffled": 4.45,
+     "vs_shuffled": 1.72,
+     "z": 4.86
+    },
+    "333 any | \u00b11m": {
+     "actual": 8.88,
+     "chance": 8.08,
+     "shuffled": 6.55,
+     "vs_shuffled": 1.36,
+     "z": 2.94
+    },
+    "333 any | \u00b15m": {
+     "actual": 17.45,
+     "chance": 17.08,
+     "shuffled": 14.49,
+     "vs_shuffled": 1.2,
+     "z": 2.63
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.27,
+     "chance": 2.25,
+     "shuffled": 1.84,
+     "vs_shuffled": 1.78,
+     "z": 3.33
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 5.0,
+     "chance": 4.5,
+     "shuffled": 3.8,
+     "vs_shuffled": 1.32,
+     "z": 1.97
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 12.45,
+     "chance": 13.5,
+     "shuffled": 11.98,
+     "vs_shuffled": 1.04,
+     "z": 0.45
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.65,
+     "chance": 1.33,
+     "shuffled": 1.22,
+     "vs_shuffled": 2.17,
+     "z": 4.07
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.86,
+     "chance": 1.78,
+     "shuffled": 1.78,
+     "vs_shuffled": 1.61,
+     "z": 2.56
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.9,
+     "chance": 3.55,
+     "shuffled": 3.55,
+     "vs_shuffled": 1.38,
+     "z": 2.28
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 10.31,
+     "chance": 3.37,
+     "shuffled": 6.37,
+     "vs_shuffled": 1.62,
+     "z": 5.05
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 19.08,
+     "chance": 10.04,
+     "shuffled": 14.94,
+     "vs_shuffled": 1.28,
+     "z": 3.64
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 43.16,
+     "chance": 36.71,
+     "shuffled": 41.96,
+     "vs_shuffled": 1.03,
+     "z": 0.76
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.06,
+     "chance": 3.3,
+     "shuffled": 2.94,
+     "vs_shuffled": 1.04,
+     "z": 0.23
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 10.31,
+     "chance": 9.97,
+     "shuffled": 9.51,
+     "vs_shuffled": 1.08,
+     "z": 0.85
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 33.47,
+     "chance": 36.63,
+     "shuffled": 33.04,
+     "vs_shuffled": 1.01,
+     "z": 0.29
+    }
+   },
+   "YM": {
+    "events": 1036,
+    "414141 | \u00b10m": {
+     "actual": 6.76,
+     "chance": 1.12,
+     "shuffled": 3.94,
+     "vs_shuffled": 1.72,
+     "z": 4.66
+    },
+    "414141 | \u00b11m": {
+     "actual": 11.29,
+     "chance": 3.3,
+     "shuffled": 8.86,
+     "vs_shuffled": 1.27,
+     "z": 2.76
+    },
+    "414141 | \u00b15m": {
+     "actual": 20.46,
+     "chance": 12.0,
+     "shuffled": 19.92,
+     "vs_shuffled": 1.03,
+     "z": 0.44
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.89,
+     "chance": 5.72,
+     "shuffled": 3.9,
+     "vs_shuffled": 1.51,
+     "z": 3.31
+    },
+    "222 any | \u00b11m": {
+     "actual": 8.11,
+     "chance": 7.97,
+     "shuffled": 5.69,
+     "vs_shuffled": 1.42,
+     "z": 3.35
+    },
+    "222 any | \u00b15m": {
+     "actual": 14.29,
+     "chance": 16.95,
+     "shuffled": 13.15,
+     "vs_shuffled": 1.09,
+     "z": 1.08
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.9,
+     "chance": 2.24,
+     "shuffled": 1.85,
+     "vs_shuffled": 1.56,
+     "z": 2.49
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 5.41,
+     "chance": 4.49,
+     "shuffled": 3.67,
+     "vs_shuffled": 1.47,
+     "z": 2.98
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.97,
+     "chance": 13.46,
+     "shuffled": 11.35,
+     "vs_shuffled": 1.05,
+     "z": 0.63
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.97,
+     "chance": 1.11,
+     "shuffled": 0.87,
+     "vs_shuffled": 1.11,
+     "z": 0.33
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.64,
+     "chance": 1.77,
+     "shuffled": 1.31,
+     "vs_shuffled": 1.25,
+     "z": 0.93
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.41,
+     "chance": 3.54,
+     "shuffled": 2.36,
+     "vs_shuffled": 1.02,
+     "z": 0.12
+    },
+    "333 any | \u00b10m": {
+     "actual": 9.07,
+     "chance": 5.85,
+     "shuffled": 4.69,
+     "vs_shuffled": 1.93,
+     "z": 6.67
+    },
+    "333 any | \u00b11m": {
+     "actual": 11.2,
+     "chance": 8.1,
+     "shuffled": 6.25,
+     "vs_shuffled": 1.79,
+     "z": 6.57
+    },
+    "333 any | \u00b15m": {
+     "actual": 20.37,
+     "chance": 17.09,
+     "shuffled": 13.9,
+     "vs_shuffled": 1.47,
+     "z": 6.02
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 4.34,
+     "chance": 2.25,
+     "shuffled": 2.2,
+     "vs_shuffled": 1.97,
+     "z": 4.7
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 6.76,
+     "chance": 4.5,
+     "shuffled": 3.9,
+     "vs_shuffled": 1.73,
+     "z": 4.75
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 15.54,
+     "chance": 13.49,
+     "shuffled": 11.45,
+     "vs_shuffled": 1.36,
+     "z": 4.14
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 3.38,
+     "chance": 1.33,
+     "shuffled": 1.22,
+     "vs_shuffled": 2.78,
+     "z": 6.35
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 3.67,
+     "chance": 1.77,
+     "shuffled": 1.51,
+     "vs_shuffled": 2.44,
+     "z": 5.71
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 6.18,
+     "chance": 3.54,
+     "shuffled": 3.2,
+     "vs_shuffled": 1.93,
+     "z": 5.43
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 11.58,
+     "chance": 3.37,
+     "shuffled": 5.97,
+     "vs_shuffled": 1.94,
+     "z": 7.63
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 21.72,
+     "chance": 10.04,
+     "shuffled": 14.94,
+     "vs_shuffled": 1.45,
+     "z": 6.12
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 46.33,
+     "chance": 36.7,
+     "shuffled": 40.91,
+     "vs_shuffled": 1.13,
+     "z": 3.55
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 4.34,
+     "chance": 3.3,
+     "shuffled": 2.95,
+     "vs_shuffled": 1.47,
+     "z": 2.64
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 11.1,
+     "chance": 9.96,
+     "shuffled": 9.58,
+     "vs_shuffled": 1.16,
+     "z": 1.67
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 32.05,
+     "chance": 36.63,
+     "shuffled": 34.34,
+     "vs_shuffled": 0.93,
+     "z": -1.56
+    }
+   },
+   "RTY": {
+    "events": 860,
+    "414141 | \u00b10m": {
+     "actual": 5.58,
+     "chance": 1.12,
+     "shuffled": 3.95,
+     "vs_shuffled": 1.41,
+     "z": 2.45
+    },
+    "414141 | \u00b11m": {
+     "actual": 9.53,
+     "chance": 3.3,
+     "shuffled": 8.23,
+     "vs_shuffled": 1.16,
+     "z": 1.39
+    },
+    "414141 | \u00b15m": {
+     "actual": 19.42,
+     "chance": 12.0,
+     "shuffled": 19.95,
+     "vs_shuffled": 0.97,
+     "z": -0.39
+    },
+    "222 any | \u00b10m": {
+     "actual": 3.95,
+     "chance": 5.89,
+     "shuffled": 3.84,
+     "vs_shuffled": 1.03,
+     "z": 0.18
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.05,
+     "chance": 8.13,
+     "shuffled": 5.77,
+     "vs_shuffled": 1.05,
+     "z": 0.35
+    },
+    "222 any | \u00b15m": {
+     "actual": 13.84,
+     "chance": 17.1,
+     "shuffled": 13.02,
+     "vs_shuffled": 1.06,
+     "z": 0.71
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 1.86,
+     "chance": 2.24,
+     "shuffled": 1.67,
+     "vs_shuffled": 1.11,
+     "z": 0.43
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.19,
+     "chance": 4.49,
+     "shuffled": 3.63,
+     "vs_shuffled": 1.15,
+     "z": 0.88
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.86,
+     "chance": 13.45,
+     "shuffled": 10.79,
+     "vs_shuffled": 1.1,
+     "z": 1.01
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.7,
+     "chance": 1.11,
+     "shuffled": 0.72,
+     "vs_shuffled": 0.97,
+     "z": -0.08
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.16,
+     "chance": 1.77,
+     "shuffled": 1.33,
+     "vs_shuffled": 0.88,
+     "z": -0.42
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.33,
+     "chance": 3.54,
+     "shuffled": 2.63,
+     "vs_shuffled": 0.88,
+     "z": -0.55
+    },
+    "333 any | \u00b10m": {
+     "actual": 8.49,
+     "chance": 5.81,
+     "shuffled": 4.49,
+     "vs_shuffled": 1.89,
+     "z": 5.67
+    },
+    "333 any | \u00b11m": {
+     "actual": 11.4,
+     "chance": 8.06,
+     "shuffled": 6.28,
+     "vs_shuffled": 1.81,
+     "z": 6.18
+    },
+    "333 any | \u00b15m": {
+     "actual": 18.84,
+     "chance": 17.06,
+     "shuffled": 14.58,
+     "vs_shuffled": 1.29,
+     "z": 3.54
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.49,
+     "chance": 2.25,
+     "shuffled": 1.74,
+     "vs_shuffled": 2.0,
+     "z": 3.91
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 6.16,
+     "chance": 4.5,
+     "shuffled": 3.47,
+     "vs_shuffled": 1.78,
+     "z": 4.33
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 14.53,
+     "chance": 13.5,
+     "shuffled": 11.53,
+     "vs_shuffled": 1.26,
+     "z": 2.75
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.91,
+     "chance": 1.33,
+     "shuffled": 1.33,
+     "vs_shuffled": 2.19,
+     "z": 4.05
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 3.49,
+     "chance": 1.77,
+     "shuffled": 1.74,
+     "vs_shuffled": 2.0,
+     "z": 3.91
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 4.77,
+     "chance": 3.54,
+     "shuffled": 3.86,
+     "vs_shuffled": 1.23,
+     "z": 1.38
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 8.72,
+     "chance": 3.38,
+     "shuffled": 5.88,
+     "vs_shuffled": 1.48,
+     "z": 3.54
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 17.91,
+     "chance": 10.04,
+     "shuffled": 13.7,
+     "vs_shuffled": 1.31,
+     "z": 3.59
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 44.07,
+     "chance": 36.72,
+     "shuffled": 40.37,
+     "vs_shuffled": 1.09,
+     "z": 2.21
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.49,
+     "chance": 3.3,
+     "shuffled": 2.63,
+     "vs_shuffled": 1.33,
+     "z": 1.58
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 9.77,
+     "chance": 9.96,
+     "shuffled": 8.93,
+     "vs_shuffled": 1.09,
+     "z": 0.86
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 32.44,
+     "chance": 36.63,
+     "shuffled": 34.02,
+     "vs_shuffled": 0.95,
+     "z": -0.98
+    }
+   }
+  },
+  "90 min": {
+   "NQ": {
+    "events": 3620,
+    "414141 | \u00b10m": {
+     "actual": 9.01,
+     "chance": 1.12,
+     "shuffled": 6.26,
+     "vs_shuffled": 1.44,
+     "z": 6.82
+    },
+    "414141 | \u00b11m": {
+     "actual": 15.77,
+     "chance": 3.3,
+     "shuffled": 14.4,
+     "vs_shuffled": 1.1,
+     "z": 2.35
+    },
+    "414141 | \u00b15m": {
+     "actual": 31.08,
+     "chance": 11.98,
+     "shuffled": 29.8,
+     "vs_shuffled": 1.04,
+     "z": 1.69
+    },
+    "222 any | \u00b10m": {
+     "actual": 4.81,
+     "chance": 5.71,
+     "shuffled": 4.18,
+     "vs_shuffled": 1.15,
+     "z": 1.89
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.63,
+     "chance": 7.96,
+     "shuffled": 6.06,
+     "vs_shuffled": 1.09,
+     "z": 1.45
+    },
+    "222 any | \u00b15m": {
+     "actual": 12.79,
+     "chance": 16.95,
+     "shuffled": 12.27,
+     "vs_shuffled": 1.04,
+     "z": 0.96
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 1.88,
+     "chance": 2.25,
+     "shuffled": 1.59,
+     "vs_shuffled": 1.18,
+     "z": 1.41
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 3.34,
+     "chance": 4.49,
+     "shuffled": 3.15,
+     "vs_shuffled": 1.06,
+     "z": 0.65
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 9.17,
+     "chance": 13.48,
+     "shuffled": 9.26,
+     "vs_shuffled": 0.99,
+     "z": -0.18
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.02,
+     "chance": 1.08,
+     "shuffled": 0.64,
+     "vs_shuffled": 1.61,
+     "z": 2.93
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.49,
+     "chance": 1.73,
+     "shuffled": 1.08,
+     "vs_shuffled": 1.38,
+     "z": 2.41
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.62,
+     "chance": 3.46,
+     "shuffled": 2.47,
+     "vs_shuffled": 1.06,
+     "z": 0.6
+    },
+    "333 any | \u00b10m": {
+     "actual": 5.47,
+     "chance": 5.88,
+     "shuffled": 4.41,
+     "vs_shuffled": 1.24,
+     "z": 3.09
+    },
+    "333 any | \u00b11m": {
+     "actual": 7.35,
+     "chance": 8.13,
+     "shuffled": 6.18,
+     "vs_shuffled": 1.19,
+     "z": 2.93
+    },
+    "333 any | \u00b15m": {
+     "actual": 14.31,
+     "chance": 17.12,
+     "shuffled": 12.79,
+     "vs_shuffled": 1.12,
+     "z": 2.74
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.49,
+     "chance": 2.25,
+     "shuffled": 1.35,
+     "vs_shuffled": 1.84,
+     "z": 5.94
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.23,
+     "chance": 4.49,
+     "shuffled": 2.98,
+     "vs_shuffled": 1.42,
+     "z": 4.4
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.94,
+     "chance": 13.48,
+     "shuffled": 9.46,
+     "vs_shuffled": 1.16,
+     "z": 3.03
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.57,
+     "chance": 1.36,
+     "shuffled": 1.02,
+     "vs_shuffled": 1.54,
+     "z": 3.3
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.88,
+     "chance": 1.82,
+     "shuffled": 1.44,
+     "vs_shuffled": 1.3,
+     "z": 2.2
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.34,
+     "chance": 3.63,
+     "shuffled": 2.81,
+     "vs_shuffled": 1.19,
+     "z": 1.93
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 12.13,
+     "chance": 3.37,
+     "shuffled": 7.65,
+     "vs_shuffled": 1.58,
+     "z": 10.13
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 22.35,
+     "chance": 10.04,
+     "shuffled": 19.02,
+     "vs_shuffled": 1.18,
+     "z": 5.11
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 50.06,
+     "chance": 36.7,
+     "shuffled": 46.87,
+     "vs_shuffled": 1.07,
+     "z": 3.84
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 2.85,
+     "chance": 3.3,
+     "shuffled": 2.51,
+     "vs_shuffled": 1.13,
+     "z": 1.27
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 7.93,
+     "chance": 9.96,
+     "shuffled": 8.01,
+     "vs_shuffled": 0.99,
+     "z": -0.18
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 28.92,
+     "chance": 36.63,
+     "shuffled": 29.71,
+     "vs_shuffled": 0.97,
+     "z": -1.03
+    }
+   },
+   "ES": {
+    "events": 3798,
+    "414141 | \u00b10m": {
+     "actual": 9.32,
+     "chance": 1.12,
+     "shuffled": 6.61,
+     "vs_shuffled": 1.41,
+     "z": 6.73
+    },
+    "414141 | \u00b11m": {
+     "actual": 15.77,
+     "chance": 3.3,
+     "shuffled": 14.57,
+     "vs_shuffled": 1.08,
+     "z": 2.11
+    },
+    "414141 | \u00b15m": {
+     "actual": 29.94,
+     "chance": 11.98,
+     "shuffled": 29.87,
+     "vs_shuffled": 1.0,
+     "z": 0.09
+    },
+    "222 any | \u00b10m": {
+     "actual": 4.79,
+     "chance": 5.63,
+     "shuffled": 4.15,
+     "vs_shuffled": 1.15,
+     "z": 1.99
+    },
+    "222 any | \u00b11m": {
+     "actual": 6.48,
+     "chance": 7.88,
+     "shuffled": 5.89,
+     "vs_shuffled": 1.1,
+     "z": 1.53
+    },
+    "222 any | \u00b15m": {
+     "actual": 11.9,
+     "chance": 16.86,
+     "shuffled": 12.15,
+     "vs_shuffled": 0.98,
+     "z": -0.48
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.21,
+     "chance": 2.25,
+     "shuffled": 1.55,
+     "vs_shuffled": 1.42,
+     "z": 3.28
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 3.71,
+     "chance": 4.5,
+     "shuffled": 3.13,
+     "vs_shuffled": 1.19,
+     "z": 2.07
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 8.85,
+     "chance": 13.49,
+     "shuffled": 9.34,
+     "vs_shuffled": 0.95,
+     "z": -1.04
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.87,
+     "chance": 1.08,
+     "shuffled": 0.69,
+     "vs_shuffled": 1.26,
+     "z": 1.33
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.42,
+     "chance": 1.73,
+     "shuffled": 1.19,
+     "vs_shuffled": 1.19,
+     "z": 1.32
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.4,
+     "chance": 3.45,
+     "shuffled": 2.27,
+     "vs_shuffled": 1.05,
+     "z": 0.5
+    },
+    "333 any | \u00b10m": {
+     "actual": 5.79,
+     "chance": 5.76,
+     "shuffled": 4.45,
+     "vs_shuffled": 1.3,
+     "z": 4.0
+    },
+    "333 any | \u00b11m": {
+     "actual": 7.64,
+     "chance": 8.01,
+     "shuffled": 6.18,
+     "vs_shuffled": 1.24,
+     "z": 3.73
+    },
+    "333 any | \u00b15m": {
+     "actual": 14.85,
+     "chance": 17.0,
+     "shuffled": 12.42,
+     "vs_shuffled": 1.2,
+     "z": 4.54
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.92,
+     "chance": 2.25,
+     "shuffled": 1.71,
+     "vs_shuffled": 1.71,
+     "z": 5.79
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.69,
+     "chance": 4.5,
+     "shuffled": 3.24,
+     "vs_shuffled": 1.45,
+     "z": 5.04
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.24,
+     "chance": 13.49,
+     "shuffled": 9.36,
+     "vs_shuffled": 1.2,
+     "z": 3.98
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.58,
+     "chance": 1.37,
+     "shuffled": 1.04,
+     "vs_shuffled": 1.52,
+     "z": 3.3
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.87,
+     "chance": 1.82,
+     "shuffled": 1.4,
+     "vs_shuffled": 1.33,
+     "z": 2.46
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.45,
+     "chance": 3.65,
+     "shuffled": 2.79,
+     "vs_shuffled": 1.24,
+     "z": 2.48
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 12.88,
+     "chance": 3.37,
+     "shuffled": 8.2,
+     "vs_shuffled": 1.57,
+     "z": 10.49
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 22.96,
+     "chance": 10.04,
+     "shuffled": 19.41,
+     "vs_shuffled": 1.18,
+     "z": 5.53
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 48.82,
+     "chance": 36.71,
+     "shuffled": 47.15,
+     "vs_shuffled": 1.04,
+     "z": 2.05
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.37,
+     "chance": 3.3,
+     "shuffled": 2.72,
+     "vs_shuffled": 1.24,
+     "z": 2.48
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 8.79,
+     "chance": 9.97,
+     "shuffled": 8.35,
+     "vs_shuffled": 1.05,
+     "z": 0.99
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 29.94,
+     "chance": 36.63,
+     "shuffled": 29.88,
+     "vs_shuffled": 1.0,
+     "z": 0.07
+    }
+   },
+   "YM": {
+    "events": 4004,
+    "414141 | \u00b10m": {
+     "actual": 9.52,
+     "chance": 1.12,
+     "shuffled": 6.23,
+     "vs_shuffled": 1.53,
+     "z": 8.59
+    },
+    "414141 | \u00b11m": {
+     "actual": 16.51,
+     "chance": 3.3,
+     "shuffled": 14.3,
+     "vs_shuffled": 1.15,
+     "z": 4.0
+    },
+    "414141 | \u00b15m": {
+     "actual": 29.27,
+     "chance": 11.98,
+     "shuffled": 29.47,
+     "vs_shuffled": 0.99,
+     "z": -0.27
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.82,
+     "chance": 5.61,
+     "shuffled": 4.25,
+     "vs_shuffled": 1.37,
+     "z": 4.92
+    },
+    "222 any | \u00b11m": {
+     "actual": 7.67,
+     "chance": 7.86,
+     "shuffled": 5.7,
+     "vs_shuffled": 1.34,
+     "z": 5.36
+    },
+    "222 any | \u00b15m": {
+     "actual": 13.89,
+     "chance": 16.85,
+     "shuffled": 12.16,
+     "vs_shuffled": 1.14,
+     "z": 3.35
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.65,
+     "chance": 2.25,
+     "shuffled": 1.61,
+     "vs_shuffled": 1.65,
+     "z": 5.23
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.42,
+     "chance": 4.49,
+     "shuffled": 3.05,
+     "vs_shuffled": 1.45,
+     "z": 5.06
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.81,
+     "chance": 13.49,
+     "shuffled": 9.37,
+     "vs_shuffled": 1.15,
+     "z": 3.13
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.17,
+     "chance": 1.08,
+     "shuffled": 0.84,
+     "vs_shuffled": 1.39,
+     "z": 2.28
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.77,
+     "chance": 1.72,
+     "shuffled": 1.17,
+     "vs_shuffled": 1.51,
+     "z": 3.52
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.85,
+     "chance": 3.44,
+     "shuffled": 2.3,
+     "vs_shuffled": 1.24,
+     "z": 2.3
+    },
+    "333 any | \u00b10m": {
+     "actual": 6.39,
+     "chance": 5.78,
+     "shuffled": 4.45,
+     "vs_shuffled": 1.44,
+     "z": 5.96
+    },
+    "333 any | \u00b11m": {
+     "actual": 8.07,
+     "chance": 8.03,
+     "shuffled": 6.14,
+     "vs_shuffled": 1.31,
+     "z": 5.08
+    },
+    "333 any | \u00b15m": {
+     "actual": 14.34,
+     "chance": 17.02,
+     "shuffled": 12.59,
+     "vs_shuffled": 1.14,
+     "z": 3.32
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 3.15,
+     "chance": 2.25,
+     "shuffled": 1.59,
+     "vs_shuffled": 1.97,
+     "z": 7.85
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.82,
+     "chance": 4.5,
+     "shuffled": 3.09,
+     "vs_shuffled": 1.56,
+     "z": 6.32
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.01,
+     "chance": 13.48,
+     "shuffled": 9.54,
+     "vs_shuffled": 1.16,
+     "z": 3.19
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 2.17,
+     "chance": 1.37,
+     "shuffled": 0.99,
+     "vs_shuffled": 2.19,
+     "z": 7.52
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.47,
+     "chance": 1.82,
+     "shuffled": 1.33,
+     "vs_shuffled": 1.86,
+     "z": 6.32
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.85,
+     "chance": 3.65,
+     "shuffled": 2.71,
+     "vs_shuffled": 1.42,
+     "z": 4.42
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 13.49,
+     "chance": 3.37,
+     "shuffled": 7.76,
+     "vs_shuffled": 1.74,
+     "z": 13.55
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 24.5,
+     "chance": 10.04,
+     "shuffled": 18.93,
+     "vs_shuffled": 1.29,
+     "z": 9.0
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 50.12,
+     "chance": 36.71,
+     "shuffled": 46.78,
+     "vs_shuffled": 1.07,
+     "z": 4.24
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.6,
+     "chance": 3.3,
+     "shuffled": 2.55,
+     "vs_shuffled": 1.41,
+     "z": 4.21
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 9.22,
+     "chance": 9.96,
+     "shuffled": 8.3,
+     "vs_shuffled": 1.11,
+     "z": 2.11
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 29.22,
+     "chance": 36.63,
+     "shuffled": 30.25,
+     "vs_shuffled": 0.97,
+     "z": -1.42
+    }
+   },
+   "RTY": {
+    "events": 3322,
+    "414141 | \u00b10m": {
+     "actual": 8.94,
+     "chance": 1.12,
+     "shuffled": 6.3,
+     "vs_shuffled": 1.42,
+     "z": 6.27
+    },
+    "414141 | \u00b11m": {
+     "actual": 16.23,
+     "chance": 3.3,
+     "shuffled": 13.89,
+     "vs_shuffled": 1.17,
+     "z": 3.89
+    },
+    "414141 | \u00b15m": {
+     "actual": 29.38,
+     "chance": 11.99,
+     "shuffled": 29.7,
+     "vs_shuffled": 0.99,
+     "z": -0.4
+    },
+    "222 any | \u00b10m": {
+     "actual": 5.03,
+     "chance": 5.77,
+     "shuffled": 4.27,
+     "vs_shuffled": 1.18,
+     "z": 2.14
+    },
+    "222 any | \u00b11m": {
+     "actual": 7.01,
+     "chance": 8.02,
+     "shuffled": 5.89,
+     "vs_shuffled": 1.19,
+     "z": 2.76
+    },
+    "222 any | \u00b15m": {
+     "actual": 13.64,
+     "chance": 17.01,
+     "shuffled": 12.14,
+     "vs_shuffled": 1.12,
+     "z": 2.63
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.47,
+     "chance": 2.25,
+     "shuffled": 1.51,
+     "vs_shuffled": 1.64,
+     "z": 4.56
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.27,
+     "chance": 4.5,
+     "shuffled": 3.05,
+     "vs_shuffled": 1.4,
+     "z": 4.12
+    },
+    "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 10.54,
+     "chance": 13.49,
+     "shuffled": 9.15,
+     "vs_shuffled": 1.15,
+     "z": 2.78
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 0.75,
+     "chance": 1.07,
+     "shuffled": 0.71,
+     "vs_shuffled": 1.06,
+     "z": 0.29
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 1.51,
+     "chance": 1.71,
+     "shuffled": 1.14,
+     "vs_shuffled": 1.32,
+     "z": 2.0
+    },
+    "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 2.95,
+     "chance": 3.42,
+     "shuffled": 2.29,
+     "vs_shuffled": 1.29,
+     "z": 2.53
+    },
+    "333 any | \u00b10m": {
+     "actual": 5.72,
+     "chance": 5.74,
+     "shuffled": 4.24,
+     "vs_shuffled": 1.35,
+     "z": 4.22
+    },
+    "333 any | \u00b11m": {
+     "actual": 7.71,
+     "chance": 7.98,
+     "shuffled": 5.86,
+     "vs_shuffled": 1.31,
+     "z": 4.52
+    },
+    "333 any | \u00b15m": {
+     "actual": 14.42,
+     "chance": 16.97,
+     "shuffled": 12.46,
+     "vs_shuffled": 1.16,
+     "z": 3.41
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+     "actual": 2.62,
+     "chance": 2.25,
+     "shuffled": 1.36,
+     "vs_shuffled": 1.92,
+     "z": 6.26
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+     "actual": 4.49,
+     "chance": 4.5,
+     "shuffled": 2.9,
+     "vs_shuffled": 1.55,
+     "z": 5.46
+    },
+    "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+     "actual": 11.41,
+     "chance": 13.48,
+     "shuffled": 9.31,
+     "vs_shuffled": 1.22,
+     "z": 4.16
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+     "actual": 1.66,
+     "chance": 1.37,
+     "shuffled": 1.07,
+     "vs_shuffled": 1.55,
+     "z": 3.31
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+     "actual": 2.14,
+     "chance": 1.83,
+     "shuffled": 1.35,
+     "vs_shuffled": 1.58,
+     "z": 3.94
+    },
+    "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+     "actual": 3.34,
+     "chance": 3.66,
+     "shuffled": 2.83,
+     "vs_shuffled": 1.18,
+     "z": 1.78
+    },
+    "control: :00 / :30 | \u00b10m": {
+     "actual": 12.55,
+     "chance": 3.37,
+     "shuffled": 7.79,
+     "vs_shuffled": 1.61,
+     "z": 10.24
+    },
+    "control: :00 / :30 | \u00b11m": {
+     "actual": 23.78,
+     "chance": 10.04,
+     "shuffled": 18.39,
+     "vs_shuffled": 1.29,
+     "z": 8.02
+    },
+    "control: :00 / :30 | \u00b15m": {
+     "actual": 49.79,
+     "chance": 36.72,
+     "shuffled": 46.51,
+     "vs_shuffled": 1.07,
+     "z": 3.78
+    },
+    "control: :15 / :45 | \u00b10m": {
+     "actual": 3.07,
+     "chance": 3.3,
+     "shuffled": 2.7,
+     "vs_shuffled": 1.14,
+     "z": 1.33
+    },
+    "control: :15 / :45 | \u00b11m": {
+     "actual": 8.01,
+     "chance": 9.96,
+     "shuffled": 8.03,
+     "vs_shuffled": 1.0,
+     "z": -0.05
+    },
+    "control: :15 / :45 | \u00b15m": {
+     "actual": 28.63,
+     "chance": 36.63,
+     "shuffled": 30.22,
+     "vs_shuffled": 0.95,
+     "z": -1.99
+    }
+   }
+  }
+ },
+ "ssmt": {
+  "SSMT": {
+   "events": 1805,
+   "414141 | \u00b10m": {
+    "actual": 2.11,
+    "chance": 1.12,
+    "vs_chance": 1.87,
+    "z": 3.95
+   },
+   "414141 | \u00b11m": {
+    "actual": 3.77,
+    "chance": 3.3,
+    "vs_chance": 1.14,
+    "z": 1.12
+   },
+   "414141 | \u00b15m": {
+    "actual": 12.69,
+    "chance": 11.99,
+    "vs_chance": 1.06,
+    "z": 0.91
+   },
+   "222 any | \u00b10m": {
+    "actual": 5.71,
+    "chance": 5.7,
+    "vs_chance": 1.0,
+    "z": 0.01
+   },
+   "222 any | \u00b11m": {
+    "actual": 7.53,
+    "chance": 7.95,
+    "vs_chance": 0.95,
+    "z": -0.65
+   },
+   "222 any | \u00b15m": {
+    "actual": 15.73,
+    "chance": 16.95,
+    "vs_chance": 0.93,
+    "z": -1.37
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+    "actual": 2.33,
+    "chance": 2.25,
+    "vs_chance": 1.03,
+    "z": 0.22
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+    "actual": 4.04,
+    "chance": 4.5,
+    "vs_chance": 0.9,
+    "z": -0.93
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+    "actual": 11.91,
+    "chance": 13.49,
+    "vs_chance": 0.88,
+    "z": -1.97
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+    "actual": 0.83,
+    "chance": 1.12,
+    "vs_chance": 0.74,
+    "z": -1.16
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+    "actual": 1.33,
+    "chance": 1.79,
+    "vs_chance": 0.74,
+    "z": -1.48
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+    "actual": 2.99,
+    "chance": 3.58,
+    "vs_chance": 0.83,
+    "z": -1.35
+   },
+   "333 any | \u00b10m": {
+    "actual": 6.15,
+    "chance": 5.81,
+    "vs_chance": 1.06,
+    "z": 0.61
+   },
+   "333 any | \u00b11m": {
+    "actual": 8.92,
+    "chance": 8.06,
+    "vs_chance": 1.11,
+    "z": 1.34
+   },
+   "333 any | \u00b15m": {
+    "actual": 20.78,
+    "chance": 17.04,
+    "vs_chance": 1.22,
+    "z": 4.22
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+    "actual": 3.49,
+    "chance": 2.24,
+    "vs_chance": 1.56,
+    "z": 3.58
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+    "actual": 6.2,
+    "chance": 4.49,
+    "vs_chance": 1.38,
+    "z": 3.52
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+    "actual": 17.89,
+    "chance": 13.47,
+    "vs_chance": 1.33,
+    "z": 5.51
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+    "actual": 1.88,
+    "chance": 1.34,
+    "vs_chance": 1.41,
+    "z": 2.02
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+    "actual": 2.38,
+    "chance": 1.78,
+    "vs_chance": 1.34,
+    "z": 1.92
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+    "actual": 4.65,
+    "chance": 3.57,
+    "vs_chance": 1.3,
+    "z": 2.48
+   },
+   "control: :00 / :30 | \u00b10m": {
+    "actual": 5.93,
+    "chance": 3.37,
+    "vs_chance": 1.76,
+    "z": 6.02
+   },
+   "control: :00 / :30 | \u00b11m": {
+    "actual": 12.3,
+    "chance": 10.04,
+    "vs_chance": 1.23,
+    "z": 3.2
+   },
+   "control: :00 / :30 | \u00b15m": {
+    "actual": 40.72,
+    "chance": 36.7,
+    "vs_chance": 1.11,
+    "z": 3.54
+   },
+   "control: :15 / :45 | \u00b10m": {
+    "actual": 3.27,
+    "chance": 3.3,
+    "vs_chance": 0.99,
+    "z": -0.07
+   },
+   "control: :15 / :45 | \u00b11m": {
+    "actual": 9.81,
+    "chance": 9.96,
+    "vs_chance": 0.98,
+    "z": -0.22
+   },
+   "control: :15 / :45 | \u00b15m": {
+    "actual": 34.85,
+    "chance": 36.63,
+    "vs_chance": 0.95,
+    "z": -1.57
+   }
+  },
+  "no divergence (all agree)": {
+   "events": 2719,
+   "414141 | \u00b10m": {
+    "actual": 1.88,
+    "chance": 1.12,
+    "vs_chance": 1.67,
+    "z": 3.71
+   },
+   "414141 | \u00b11m": {
+    "actual": 3.68,
+    "chance": 3.3,
+    "vs_chance": 1.12,
+    "z": 1.11
+   },
+   "414141 | \u00b15m": {
+    "actual": 11.84,
+    "chance": 11.99,
+    "vs_chance": 0.99,
+    "z": -0.23
+   },
+   "222 any | \u00b10m": {
+    "actual": 7.5,
+    "chance": 5.7,
+    "vs_chance": 1.32,
+    "z": 4.05
+   },
+   "222 any | \u00b11m": {
+    "actual": 9.75,
+    "chance": 7.95,
+    "vs_chance": 1.23,
+    "z": 3.46
+   },
+   "222 any | \u00b15m": {
+    "actual": 19.53,
+    "chance": 16.95,
+    "vs_chance": 1.15,
+    "z": 3.59
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+    "actual": 3.05,
+    "chance": 2.25,
+    "vs_chance": 1.36,
+    "z": 2.83
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+    "actual": 5.55,
+    "chance": 4.5,
+    "vs_chance": 1.23,
+    "z": 2.66
+   },
+   "222 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+    "actual": 15.59,
+    "chance": 13.49,
+    "vs_chance": 1.16,
+    "z": 3.21
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+    "actual": 1.47,
+    "chance": 1.12,
+    "vs_chance": 1.31,
+    "z": 1.74
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+    "actual": 2.06,
+    "chance": 1.79,
+    "vs_chance": 1.15,
+    "z": 1.06
+   },
+   "222 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+    "actual": 3.71,
+    "chance": 3.58,
+    "vs_chance": 1.04,
+    "z": 0.37
+   },
+   "333 any | \u00b10m": {
+    "actual": 7.47,
+    "chance": 5.81,
+    "vs_chance": 1.28,
+    "z": 3.68
+   },
+   "333 any | \u00b11m": {
+    "actual": 9.56,
+    "chance": 8.06,
+    "vs_chance": 1.19,
+    "z": 2.88
+   },
+   "333 any | \u00b15m": {
+    "actual": 17.1,
+    "chance": 17.04,
+    "vs_chance": 1.0,
+    "z": 0.09
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b10m": {
+    "actual": 3.64,
+    "chance": 2.24,
+    "vs_chance": 1.62,
+    "z": 4.92
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b11m": {
+    "actual": 5.96,
+    "chance": 4.49,
+    "vs_chance": 1.33,
+    "z": 3.7
+   },
+   "333 Pico (MC\u00b7NA\u00b7PI) | \u00b15m": {
+    "actual": 13.61,
+    "chance": 13.47,
+    "vs_chance": 1.01,
+    "z": 0.21
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b10m": {
+    "actual": 1.66,
+    "chance": 1.34,
+    "vs_chance": 1.24,
+    "z": 1.44
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b11m": {
+    "actual": 1.91,
+    "chance": 1.78,
+    "vs_chance": 1.07,
+    "z": 0.51
+   },
+   "333 DOOR (90\u00b7MC\u00b7NA) | \u00b15m": {
+    "actual": 2.98,
+    "chance": 3.57,
+    "vs_chance": 0.83,
+    "z": -1.66
+   },
+   "control: :00 / :30 | \u00b10m": {
+    "actual": 6.84,
+    "chance": 3.37,
+    "vs_chance": 2.03,
+    "z": 10.02
+   },
+   "control: :00 / :30 | \u00b11m": {
+    "actual": 13.42,
+    "chance": 10.04,
+    "vs_chance": 1.34,
+    "z": 5.88
+   },
+   "control: :00 / :30 | \u00b15m": {
+    "actual": 39.43,
+    "chance": 36.7,
+    "vs_chance": 1.07,
+    "z": 2.95
+   },
+   "control: :15 / :45 | \u00b10m": {
+    "actual": 4.12,
+    "chance": 3.3,
+    "vs_chance": 1.25,
+    "z": 2.4
+   },
+   "control: :15 / :45 | \u00b11m": {
+    "actual": 10.85,
+    "chance": 9.96,
+    "vs_chance": 1.09,
+    "z": 1.54
+   },
+   "control: :15 / :45 | \u00b15m": {
+    "actual": 36.37,
+    "chance": 36.63,
+    "vs_chance": 0.99,
+    "z": -0.28
+   }
+  }
+ }
+}
