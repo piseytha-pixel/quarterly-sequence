@@ -81,7 +81,11 @@ for wk in (1, 2, 3, 4):
             if best >= 3: add('414141', (wk, minute))
         if minute % 30 == 0: add('control: :00 / :30', (wk, minute))
         if minute % 30 == 15: add('control: :15 / :45', (wk, minute))
-ORDER = ['414141', '222 any', '222 Pico (MC·NA·PI)', '222 DOOR (90·MC·NA)', '333 any', '333 Pico (MC·NA·PI)', '333 DOOR (90·MC·NA)', 'control: :00 / :30', 'control: :15 / :45']
+# the same windows with the big US event times taken out (08:30 data, 09:30 open, 10:00 data, 16:00 close)
+EV = {(wk, m) for wk in (1, 2, 3, 4) for t in (510, 570, 600, 960) for m in range(t - 6, t + 7)}
+for c in ('414141', '222 any', '222 Pico (MC·NA·PI)', '333 any', '333 Pico (MC·NA·PI)', '333 DOOR (90·MC·NA)', 'control: :00 / :30'):
+    CATS[c + ' — no event times'] = CATS[c] - EV
+ORDER = ['414141', '222 any', '222 Pico (MC·NA·PI)', '222 DOOR (90·MC·NA)', '333 any', '333 Pico (MC·NA·PI)', '333 DOOR (90·MC·NA)', 'control: :00 / :30', 'control: :15 / :45'] + [c + ' — no event times' for c in ('414141', '222 any', '222 Pico (MC·NA·PI)', '333 any', '333 Pico (MC·NA·PI)', '333 DOOR (90·MC·NA)', 'control: :00 / :30')]
 TOLS = (0, 1, 5)
 DIL = {(c, t): {(wk, (m + d) % 1440) for (wk, m) in CATS[c] for d in range(-t, t + 1)} for c in ORDER for t in TOLS}
 
