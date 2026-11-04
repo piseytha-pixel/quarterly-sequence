@@ -1,0 +1,30 @@
+# Runs the High - Low / SSMT vs 222 / 333 / 414141 test when research/hl_test.py changes; saves the report in research/.
+name: High - Low test
+on:
+  push:
+    branches: [main]
+    paths: [research/hl_test.py, .github/workflows/hl-test.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse downloaded candles
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: dukas-${{ github.run_id }}
+          restore-keys: dukas-
+      - name: Run the test
+        run: python3 research/hl_test.py
+      - name: Save the report in research/
+        if: always()
+        run: |
+          cp out/hl_test.md out/hl_test.json research/ || exit 0
+          git config user.name "research-bot"; git config user.email "research-bot@users.noreply.github.com"
+          git add research/hl_test.md research/hl_test.json
+          git commit -m "High - Low test report $(date -u +%F)" && git pull -q --rebase origin main && git push origin HEAD:main
