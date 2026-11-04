@@ -1,0 +1,30 @@
+# Runs the "which 222 / 333 / 414141 form the High - Low" test; reuses the cached candles; saves the report in research/.
+name: Which sequence test
+on:
+  push:
+    branches: [main]
+    paths: [research/which_test.py, .github/workflows/which-test.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reuse downloaded candles
+        uses: actions/cache/restore@v4
+        with:
+          path: cache
+          key: dukas-${{ github.run_id }}
+          restore-keys: dukas-
+      - name: Run the test
+        run: ls cache | wc -l && python3 research/which_test.py
+      - name: Save the report in research/
+        if: always()
+        run: |
+          cp out/which_test.md out/which_test.json research/ || exit 0
+          git config user.name "research-bot"; git config user.email "research-bot@users.noreply.github.com"
+          git add research/which_test.md research/which_test.json
+          git commit -m "Which sequence test report $(date -u +%F)" && git pull -q --rebase origin main && git push origin HEAD:main
