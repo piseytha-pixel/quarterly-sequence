@@ -76,6 +76,13 @@ for wk in (1, 2, 3, 4):
             for f in roll: cur = cur + 1 if f else 0; best = max(best, cur)
             if best >= 3: add('414141 any', wk, minute); add(f'414141 {best} levels', wk, minute)
 
+# controls: every half-hour mark, and where each sequence sits against it
+R0 = {(wk, m) for wk in (1, 2, 3, 4) for m in range(1440) if m % 30 == 0}
+CATS['control: every :00 / :30 minute'] = R0
+CATS['control: :00 / :30 minutes that are NOT 414141'] = R0 - CATS.get('414141 any', set())
+CATS['control: :15 / :45 minutes'] = {(wk, m) for wk in (1, 2, 3, 4) for m in range(1440) if m % 30 == 15}
+CATS['control: 2-minute window around every :00 / :30'] = {(wk, m) for wk in (1, 2, 3, 4) for m in range(1440) if m % 30 in (29, 0)}
+
 def wk_of(ts):   # weekly quarter of the trading day: Mon=Q1 ... Thu=Q4, Fri counts as Q4
     d = dt.datetime.fromtimestamp(ts + 6 * 3600, NY).weekday()
     return {0: 1, 1: 2, 2: 3, 3: 4, 4: 4}.get(d)
