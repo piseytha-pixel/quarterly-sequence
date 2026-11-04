@@ -19,4 +19,4 @@ jobs:
       - run: python3 research/extract_days.py
       - run: |
           git config user.name "research-bot"; git config user.email "research-bot@users.noreply.github.com"
-          git add research/example_days.json && git commit -m "Example days (1-minute)" && git pull -q --rebase origin main && git push origin HEAD:main
+          git add research/example_days2.json.gz && git commit -m "Example days (1-minute)" && git pull -q --rebase origin main && git push origin HEAD:main
