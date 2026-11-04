@@ -1,0 +1,23 @@
+# Runs the 222 / 333 / 414141 swing test when the "research" branch is pushed, and saves the report in research/.
+name: Sequence test
+on:
+  push:
+    branches: [main]
+    paths: [research/seq_test.py, .github/workflows/seq-test.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run the test
+        run: python3 research/seq_test.py
+      - name: Save the report in research/
+        run: |
+          cp out/seq_test.md out/seq_test.json research/
+          git config user.name "research-bot"; git config user.email "research-bot@users.noreply.github.com"
+          git add research/seq_test.md research/seq_test.json
+          git commit -m "Sequence test report $(date -u +%F)" && git pull -q --rebase origin main && git push origin HEAD:main
