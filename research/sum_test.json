@@ -1,0 +1,366 @@
+{
+ "from": "2025-11-03",
+ "to": "2026-11-03",
+ "assets": {
+  "NQ": {
+   "Week (which day)": {
+    "blocks": 50,
+    "hit": 52.0,
+    "expected": 48.9,
+    "ratio": 1.064,
+    "z": 0.45,
+    "high_in_pred": 30.0,
+    "low_in_pred": 24.0,
+    "quarter_holds_HL": {
+     "Q1": 50.0,
+     "Q2": 34.0,
+     "Q3": 50.0,
+     "Q4": 64.0
+    },
+    "pred_mix": {
+     "Q1": 13,
+     "Q2": 14,
+     "Q3": 11,
+     "Q4": 12
+    },
+    "best_fixed_quarter": 64.0
+   },
+   "Day (which session)": {
+    "blocks": 252,
+    "hit": 46.8,
+    "expected": 47.4,
+    "ratio": 0.988,
+    "z": -0.18,
+    "high_in_pred": 25.8,
+    "low_in_pred": 23.8,
+    "quarter_holds_HL": {
+     "Q1": 46.4,
+     "Q2": 26.2,
+     "Q3": 57.9,
+     "Q4": 58.7
+    },
+    "pred_mix": {
+     "Q1": 51,
+     "Q2": 67,
+     "Q3": 67,
+     "Q4": 67
+    },
+    "best_fixed_quarter": 58.7
+   },
+   "90 min (which 90 in the session)": {
+    "blocks": 1001,
+    "hit": 47.5,
+    "expected": 47.4,
+    "ratio": 1.001,
+    "z": 0.04,
+    "high_in_pred": 24.8,
+    "low_in_pred": 24.4,
+    "quarter_holds_HL": {
+     "Q1": 60.5,
+     "Q2": 33.5,
+     "Q3": 51.3,
+     "Q4": 46.7
+    },
+    "pred_mix": {
+     "Q1": 230,
+     "Q2": 270,
+     "Q3": 235,
+     "Q4": 266
+    },
+    "best_fixed_quarter": 60.5
+   },
+   "Micro (which micro in the 90)": {
+    "blocks": 3769,
+    "hit": 47.6,
+    "expected": 48.0,
+    "ratio": 0.992,
+    "z": -0.51,
+    "high_in_pred": 23.9,
+    "low_in_pred": 25.0,
+    "quarter_holds_HL": {
+     "Q1": 68.2,
+     "Q2": 31.7,
+     "Q3": 38.5,
+     "Q4": 56.3
+    },
+    "pred_mix": {
+     "Q1": 793,
+     "Q2": 960,
+     "Q3": 969,
+     "Q4": 1047
+    },
+    "best_fixed_quarter": 68.2
+   }
+  },
+  "ES": {
+   "Week (which day)": {
+    "blocks": 49,
+    "hit": 57.1,
+    "expected": 47.4,
+    "ratio": 1.205,
+    "z": 1.43,
+    "high_in_pred": 38.8,
+    "low_in_pred": 22.4,
+    "quarter_holds_HL": {
+     "Q1": 53.1,
+     "Q2": 30.6,
+     "Q3": 36.7,
+     "Q4": 69.4
+    },
+    "pred_mix": {
+     "Q1": 13,
+     "Q2": 13,
+     "Q3": 11,
+     "Q4": 12
+    },
+    "best_fixed_quarter": 69.4
+   },
+   "Day (which session)": {
+    "blocks": 254,
+    "hit": 44.9,
+    "expected": 48.0,
+    "ratio": 0.935,
+    "z": -1.05,
+    "high_in_pred": 22.4,
+    "low_in_pred": 24.4,
+    "quarter_holds_HL": {
+     "Q1": 44.1,
+     "Q2": 27.2,
+     "Q3": 56.7,
+     "Q4": 64.2
+    },
+    "pred_mix": {
+     "Q1": 54,
+     "Q2": 68,
+     "Q3": 67,
+     "Q4": 65
+    },
+    "best_fixed_quarter": 64.2
+   },
+   "90 min (which 90 in the session)": {
+    "blocks": 1009,
+    "hit": 48.9,
+    "expected": 47.6,
+    "ratio": 1.027,
+    "z": 0.82,
+    "high_in_pred": 25.3,
+    "low_in_pred": 24.8,
+    "quarter_holds_HL": {
+     "Q1": 59.3,
+     "Q2": 33.0,
+     "Q3": 50.3,
+     "Q4": 49.7
+    },
+    "pred_mix": {
+     "Q1": 234,
+     "Q2": 270,
+     "Q3": 239,
+     "Q4": 266
+    },
+    "best_fixed_quarter": 59.3
+   },
+   "Micro (which micro in the 90)": {
+    "blocks": 3797,
+    "hit": 47.9,
+    "expected": 47.8,
+    "ratio": 1.002,
+    "z": 0.14,
+    "high_in_pred": 24.4,
+    "low_in_pred": 25.0,
+    "quarter_holds_HL": {
+     "Q1": 66.6,
+     "Q2": 32.3,
+     "Q3": 39.6,
+     "Q4": 55.3
+    },
+    "pred_mix": {
+     "Q1": 808,
+     "Q2": 960,
+     "Q3": 983,
+     "Q4": 1046
+    },
+    "best_fixed_quarter": 66.6
+   }
+  },
+  "YM": {
+   "Week (which day)": {
+    "blocks": 42,
+    "hit": 57.1,
+    "expected": 45.3,
+    "ratio": 1.262,
+    "z": 1.62,
+    "high_in_pred": 31.0,
+    "low_in_pred": 28.6,
+    "quarter_holds_HL": {
+     "Q1": 52.4,
+     "Q2": 28.6,
+     "Q3": 38.1,
+     "Q4": 69.0
+    },
+    "pred_mix": {
+     "Q1": 11,
+     "Q2": 14,
+     "Q3": 8,
+     "Q4": 9
+    },
+    "best_fixed_quarter": 69.0
+   },
+   "Day (which session)": {
+    "blocks": 212,
+    "hit": 49.5,
+    "expected": 47.9,
+    "ratio": 1.034,
+    "z": 0.5,
+    "high_in_pred": 27.4,
+    "low_in_pred": 24.5,
+    "quarter_holds_HL": {
+     "Q1": 40.6,
+     "Q2": 22.6,
+     "Q3": 65.1,
+     "Q4": 61.8
+    },
+    "pred_mix": {
+     "Q1": 44,
+     "Q2": 56,
+     "Q3": 56,
+     "Q4": 56
+    },
+    "best_fixed_quarter": 65.1
+   },
+   "90 min (which 90 in the session)": {
+    "blocks": 841,
+    "hit": 44.6,
+    "expected": 47.8,
+    "ratio": 0.933,
+    "z": -1.88,
+    "high_in_pred": 22.7,
+    "low_in_pred": 23.5,
+    "quarter_holds_HL": {
+     "Q1": 57.2,
+     "Q2": 33.2,
+     "Q3": 53.6,
+     "Q4": 47.7
+    },
+    "pred_mix": {
+     "Q1": 202,
+     "Q2": 214,
+     "Q3": 211,
+     "Q4": 214
+    },
+    "best_fixed_quarter": 57.2
+   },
+   "Micro (which micro in the 90)": {
+    "blocks": 3166,
+    "hit": 47.9,
+    "expected": 47.9,
+    "ratio": 1.0,
+    "z": -0.02,
+    "high_in_pred": 23.8,
+    "low_in_pred": 25.1,
+    "quarter_holds_HL": {
+     "Q1": 65.8,
+     "Q2": 35.9,
+     "Q3": 37.7,
+     "Q4": 54.4
+    },
+    "pred_mix": {
+     "Q1": 676,
+     "Q2": 775,
+     "Q3": 834,
+     "Q4": 881
+    },
+    "best_fixed_quarter": 65.8
+   }
+  },
+  "RTY": {
+   "Week (which day)": {
+    "blocks": 50,
+    "hit": 60.0,
+    "expected": 47.4,
+    "ratio": 1.266,
+    "z": 1.82,
+    "high_in_pred": 36.0,
+    "low_in_pred": 30.0,
+    "quarter_holds_HL": {
+     "Q1": 60.0,
+     "Q2": 36.0,
+     "Q3": 42.0,
+     "Q4": 52.0
+    },
+    "pred_mix": {
+     "Q1": 13,
+     "Q2": 14,
+     "Q3": 11,
+     "Q4": 12
+    },
+    "best_fixed_quarter": 60.0
+   },
+   "Day (which session)": {
+    "blocks": 256,
+    "hit": 48.8,
+    "expected": 47.1,
+    "ratio": 1.038,
+    "z": 0.61,
+    "high_in_pred": 26.6,
+    "low_in_pred": 27.3,
+    "quarter_holds_HL": {
+     "Q1": 35.5,
+     "Q2": 22.3,
+     "Q3": 64.8,
+     "Q4": 63.3
+    },
+    "pred_mix": {
+     "Q1": 53,
+     "Q2": 68,
+     "Q3": 67,
+     "Q4": 68
+    },
+    "best_fixed_quarter": 64.8
+   },
+   "90 min (which 90 in the session)": {
+    "blocks": 1016,
+    "hit": 47.2,
+    "expected": 47.1,
+    "ratio": 1.004,
+    "z": 0.12,
+    "high_in_pred": 22.4,
+    "low_in_pred": 27.0,
+    "quarter_holds_HL": {
+     "Q1": 57.2,
+     "Q2": 32.3,
+     "Q3": 52.2,
+     "Q4": 49.0
+    },
+    "pred_mix": {
+     "Q1": 234,
+     "Q2": 278,
+     "Q3": 238,
+     "Q4": 266
+    },
+    "best_fixed_quarter": 57.2
+   },
+   "Micro (which micro in the 90)": {
+    "blocks": 3829,
+    "hit": 48.8,
+    "expected": 47.9,
+    "ratio": 1.017,
+    "z": 1.07,
+    "high_in_pred": 24.9,
+    "low_in_pred": 25.0,
+    "quarter_holds_HL": {
+     "Q1": 67.3,
+     "Q2": 33.0,
+     "Q3": 39.2,
+     "Q4": 54.4
+    },
+    "pred_mix": {
+     "Q1": 823,
+     "Q2": 960,
+     "Q3": 970,
+     "Q4": 1076
+    },
+    "best_fixed_quarter": 67.3
+   }
+  }
+ }
+}
