@@ -5,16 +5,16 @@ from concurrent.futures import ThreadPoolExecutor
 from zoneinfo import ZoneInfo
 NY = ZoneInfo('America/New_York'); UTC = dt.timezone.utc
 SYMS = {'NQ': 'USATECHIDXUSD', 'ES': 'USA500IDXUSD', 'YM': 'USA30IDXUSD', 'RTY': 'USSC2000IDXUSD'}
-END = dt.date.today() - dt.timedelta(days=1); START = END - dt.timedelta(days=int(os.environ.get('SEQ_DAYS', '182')))
+END = dt.date.today() - dt.timedelta(days=1); START = END - dt.timedelta(days=int(os.environ.get('SEQ_DAYS', '365')))
 UA = {'User-Agent': 'Mozilla/5.0'}
 
 def day_file(sym, d):
     u = f'https://datafeed.dukascopy.com/datafeed/{sym}/{d.year}/{d.month-1:02d}/{d.day:02d}/BID_candles_min_1.bi5'
     err = None
     if d.weekday() == 5: return []          # Saturday: markets closed
-    for _ in range(2):
+    for _ in range(4):
         try:
-            with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=12) as r: raw = r.read()
+            with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30) as r: raw = r.read()
             if not raw: return []
             b = lzma.decompress(raw); base = int(dt.datetime(d.year, d.month, d.day, tzinfo=UTC).timestamp())
             out = []
@@ -29,7 +29,7 @@ def day_file(sym, d):
 def load(sym):
     days = [START + dt.timedelta(days=i) for i in range((END - START).days + 1)]
     t0 = __import__('time').time()
-    with ThreadPoolExecutor(16) as ex: parts = list(ex.map(lambda d: day_file(sym, d), days))
+    with ThreadPoolExecutor(8) as ex: parts = list(ex.map(lambda d: day_file(sym, d), days))
     print(f'  {sym}: {len(days)} days in {__import__("time").time()-t0:.0f}s', flush=True)
     return [x for p in parts for x in p]
 
@@ -105,7 +105,7 @@ def analyse(c, k=30):
             def hit(i):
                 wk, m, _ = keys[i]
                 return (wk, m) in St
-            base = sum(hit(i) for i in range(0, n, 3)) / len(range(0, n, 3))
+            base = sum(hit(i) for i in range(n)) / n
             h = sum(hit(i) for i in piv) / len(piv)
             z = (h - base) * len(piv) / math.sqrt(max(1e-9, len(piv) * base * (1 - base)))
             res[f'{cat} | ±{tol}m'] = dict(swing=round(h * 100, 2), base=round(base * 100, 2), ratio=round(h / base, 3) if base else None, z=round(z, 2))
@@ -115,7 +115,7 @@ def analyse(c, k=30):
         wk, m, _ = keys[i]
         if 590 <= m <= 605 or 950 <= m <= 965: return None
         return (wk, m) in S1
-    a = [hit2(i) for i in range(0, n, 3)]; a = [x for x in a if x is not None]
+    a = [hit2(i) for i in range(n)]; a = [x for x in a if x is not None]
     b = [hit2(i) for i in piv]; b = [x for x in b if x is not None]
     base = sum(a) / len(a); h = sum(b) / len(b); z = (h - base) * len(b) / math.sqrt(len(b) * base * (1 - base))
     res['333 any, without 09:50-10:05 and 15:50-16:05 | ±1m'] = dict(swing=round(h * 100, 2), base=round(base * 100, 2), ratio=round(h / base, 3), z=round(z, 2))
