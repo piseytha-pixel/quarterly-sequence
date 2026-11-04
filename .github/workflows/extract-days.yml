@@ -1,0 +1,22 @@
+name: Extract example days
+on:
+  push:
+    branches: [main]
+    paths: [research/extract_days.py, .github/workflows/extract-days.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache/restore@v4
+        with:
+          path: cache
+          key: dukas-${{ github.run_id }}
+          restore-keys: dukas-
+      - run: python3 research/extract_days.py
+      - run: |
+          git config user.name "research-bot"; git config user.email "research-bot@users.noreply.github.com"
+          git add research/example_days.json && git commit -m "Example days (1-minute)" && git pull -q --rebase origin main && git push origin HEAD:main
