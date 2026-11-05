@@ -7,6 +7,10 @@
 # Files: p/{ID}_{kind}.json = {c:[[t,o,h,l,c],...], last, prev, at}
 #   m1 / m5 / h1           live charts (every run)
 #   d1 / h1x / m5x / m1x   long history for the Score tab (refreshed once an hour)
+#
+# Archive: the "archive" branch keeps every 1-minute bar for good, one file per asset per
+# New York trading day (18:00 to 18:00): a/{ID}/{YYYY-MM-DD}.json = {c:[[t,o,h,l,c],...]}.
+# Merged every round, pushed about once an hour, also as a single commit.
 name: Update prices
 
 on:
@@ -33,6 +37,40 @@ jobs:
             cp old/p/*_d1.json old/p/*_h1x.json old/p/*_m5x.json old/p/*_m1x.json out/p/ 2>/dev/null || true
             cp old/alerts_sent.json out/ 2>/dev/null || true
           fi
+          # the 1-minute archive kept so far
+          git clone -q --depth 1 -b archive "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" arc 2>/dev/null || mkdir -p arc
+          rm -rf arc/.git && mkdir -p arc/a
+
+      - name: Write the archive script
+        run: |
+          cat > /tmp/arc.py <<'PY'
+          # Adds the latest 1-minute bars (m1x + m1) to arc/a/{ID}/{trading day}.json, never dropping old ones.
+          import json, os, glob
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+          NY = ZoneInfo('America/New_York')
+          def day(ms): return (datetime.fromtimestamp(ms / 1000, NY) + timedelta(hours=6)).strftime('%Y-%m-%d')
+          ids = sorted({os.path.basename(p).split('_')[0] for p in glob.glob('out/p/*_m1*.json')})
+          n = 0
+          for id_ in ids:
+              bars = {}
+              for k in ('m1x', 'm1'):
+                  try:
+                      for x in json.load(open(f'out/p/{id_}_{k}.json'))['c']:
+                          if x[0] % 60000 == 0: bars[x[0]] = x     # whole minutes only (skips the live tick)
+                  except Exception:
+                      pass
+              by = {}
+              for t, x in bars.items(): by.setdefault(day(t), {})[t] = x
+              for d, new in by.items():
+                  path = f'arc/a/{id_}/{d}.json'; os.makedirs(os.path.dirname(path), exist_ok=True)
+                  try: old = {x[0]: x for x in json.load(open(path))['c']}
+                  except Exception: old = {}
+                  size = len(old); old.update(new)
+                  if len(old) != size or not os.path.exists(path):
+                      json.dump({'c': [old[t] for t in sorted(old)]}, open(path, 'w'), separators=(',', ':')); n += 1
+          print('archive: updated', n, 'day files')
+          PY
 
       - name: Write the price script
         run: |
@@ -115,6 +153,14 @@ jobs:
           START=$(date +%s)
           while true; do
             python3 /tmp/px.py || echo 'download failed this round'
+            python3 /tmp/arc.py || echo 'archive merge failed this round'
+            # push the archive about once an hour (and on the first round)
+            if [ -z "$ARC_AT" ] || [ $(( $(date +%s) - ARC_AT )) -gt 3300 ]; then
+              ( cd arc && rm -rf .git && git init -q -b archive && git config user.name "prices-bot" && git config user.email "prices-bot@users.noreply.github.com" \
+                && echo "Every 1-minute bar Arcana has seen, one file per asset per New York trading day: a/{ID}/{YYYY-MM-DD}.json. Kept by .github/workflows/prices.yml" > README.md \
+                && git add -A && git commit -q -m "Archive $(TZ=America/New_York date '+%a %b %d %H:%M') NY" \
+                && git push -q --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" archive ) && ARC_AT=$(date +%s) || echo 'archive push failed this round'
+            fi
             # SSMT / 2-Stage / tCISD alerts to Telegram (settings: alerts.json on main)
             ( rm -rf site && git clone -q --depth 1 "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" site \
               && cp site/tools/alerts.js /tmp/al/alerts.js && cd /tmp/al && node alerts.js "$GITHUB_WORKSPACE/out" "$GITHUB_WORKSPACE/site" ) || echo 'alerts skipped this round'
